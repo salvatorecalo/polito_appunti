@@ -1,0 +1,137 @@
+nav.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: white;
+    position: relative;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.7em;
+}
+
+.nav-links li a {
+    font-size: clamp(0.8rem, 1.7vw, 1rem);
+    text-decoration: none;
+    color: var(--black);
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--blue);
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.nav-links li:not(:last-child) a:hover {
+    color: var(--blue);
+}
+
+.nav-links li:not(:last-child) a:hover::after {
+    width: 100%;
+}
+
+.nav-links li:last-child a {
+    color: var(--white);
+    background-color: var(--red);
+    padding: 1em 1.4em;
+    border-radius: 0.5em;
+}
+
+.nav-links li:last-child a:hover {
+    background-color: var(--dark-red);
+    animation: 0.3s ease-in-out;
+}
+
+/* Hamburger button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--black);
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+/* Transform hamburger into X */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0; /* per estendere su tutta la navbar */
+        background: white;
+        flex-direction: column;
+        padding: 1em 2em; /* match con navbar padding */
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    nav.open .nav-links {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-links li {
+        padding: 1em 0;
+        text-align: center;
+    }
+
+    .nav-links li:last-child {
+        padding: 0;
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .nav-links li:last-child a {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 1em;
+        border-radius: 0;
+    }
+}

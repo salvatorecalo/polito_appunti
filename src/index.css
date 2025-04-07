@@ -1,0 +1,21 @@
+/* 
+* Palette of colors:
+* Any suggestion? Write us on telegram: @polito_appunti 
+*/
+
+:root {
+  --blue: #548AF3;
+  --purple: #C054F3;
+  --red: #F43D3D;
+  --dark-red: #c41d1d;
+  --black: #1D1D1D;
+  --white: #f5f2f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+body, html {
+  width: 100%;
+  height: 100vh;
+}
