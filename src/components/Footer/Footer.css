@@ -1,0 +1,14 @@
+footer {
+    position: absolute;
+    margin: 0;
+    color: var(--white);
+    width: 100%;
+    bottom: 0;
+    background-color: var(--orange);
+    text-align: center;
+    padding: 1.5em 2em;
+}
+
+footer a:visited {
+    color: var(--dark-blue);
+}

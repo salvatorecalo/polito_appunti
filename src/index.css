@@ -4,8 +4,9 @@
 */
 
 :root {
+  --orange: #ED6D33;
   --blue: #548AF3;
-  --dark-blue: #1d5dde;
+  --dark-blue: #548AF3;
   --purple: #C054F3;
   --light-purple: #d18df1;
   --red: #F43D3D;
@@ -18,6 +19,8 @@
   box-sizing: border-box;
 }
 body, html {
+  margin: 0; 
+  padding: 0;
   width: 100%;
   height: 100vh;
 }
