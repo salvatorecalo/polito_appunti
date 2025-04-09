@@ -1,4 +1,4 @@
-import { Navbar, SearchPanel, UploadPanel } from "./components/index.js";
+import { Navbar, SearchPanel, UploadPanel } from "./components/index.ts";
 import './App.css'
 
 /*
