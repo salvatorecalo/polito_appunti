@@ -3,7 +3,7 @@ nav.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 2em;
+    padding: 2em 0em;
     background-color: white;
     position: relative;
 }
@@ -98,6 +98,7 @@ nav.navbar {
 
     .nav-links {
         position: absolute;
+        z-index: 10;
         top: 100%;
         right: 0;
         left: 0; /* per estendere su tutta la navbar */
@@ -111,7 +112,6 @@ nav.navbar {
     }
 
     nav.open .nav-links {
-        transform: translateY(0);
         opacity: 1;
         pointer-events: auto;
     }

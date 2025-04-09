@@ -4,4 +4,6 @@
 * It helps to have only one folder when import more components and not divided imports. 
 */
 
-export {Navbar} from './Navbar/Navbar'
+export {Navbar} from './Navbar/Navbar';
+export {SearchPanel} from './SearchPanel/SearchPanel';
+export {UploadPanel} from './UploadPanel/UploadPanel'
