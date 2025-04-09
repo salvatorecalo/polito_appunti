@@ -1,12 +1,24 @@
-import { Navbar } from "./components/Navbar/Navbar";
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import './App.css'
+import { HomePage, UploadPage } from './pages';
+
+
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/upload",
+      element: <UploadPage />,
+    },
+  ]);
 
 /*
 * This is where all the website contents go
 */
-export function App() {
+export default function App() {
   return (
-    <>
-    <Navbar />
-    </>
+    <RouterProvider router={router} />
   );
 }

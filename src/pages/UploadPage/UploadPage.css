@@ -1,0 +1,173 @@
+#UploadPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+#UploadPage form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    max-width: 600px;
+    width: 100%;
+    padding: 2em;
+    background-color: var(--white);
+    border-radius: 12px;
+    background-color: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#UploadPage h2 {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+#UploadPage form div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+
+#UploadPage form div label {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#UploadPage form div div {
+    position: relative;
+    width: 100%;
+}
+
+#UploadPage form div div input {
+    border: 1px solid var(--black);
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    padding: 1em 3em 1em 3em;
+    font-size: 1em;
+}
+
+#UploadPage form div div svg {
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--black);
+    pointer-events: none;
+}
+
+/* Bottone */
+#UploadPage form button {
+    width: 100%;
+    height: 3.5em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--blue);
+    color: var(--white);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#UploadPage form button:hover {
+    background-color: var(--dark-blue);
+    transition: 0.2s ease-in-out all;
+}
+
+.tooltip-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 240px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    font-size: 0.85em;
+    padding: 0.8em 1em;
+    border-radius: 6px;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #UploadPage {
+        padding: 1em;
+    }
+
+    #UploadPage form {
+        padding: 1.5em;
+        gap: 1.5em;
+    }
+
+    #UploadPage h2 {
+        font-size: 1.4em;
+    }
+
+    #UploadPage form button {
+        height: 3em;
+        font-size: 0.95em;
+    }
+
+    .tooltip .tooltiptext {
+        width: 200px;
+        font-size: 0.75em;
+    }
+}
+
+@media (max-width: 480px) {
+    #UploadPage form {
+        padding: 1em;
+        gap: 1em;
+    }
+
+    #UploadPage h2 {
+        font-size: 1.2em;
+    }
+
+    #UploadPage form div div input {
+        padding: 0.8em 2.5em 0.8em 2.5em;
+        font-size: 0.95em;
+    }
+
+    #UploadPage form button {
+        height: 2.8em;
+        font-size: 0.9em;
+    }
+
+    .tooltip .tooltiptext {
+        width: 180px;
+        font-size: 0.7em;
+    }
+}

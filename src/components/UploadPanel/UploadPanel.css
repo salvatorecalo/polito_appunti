@@ -1,0 +1,55 @@
+.upload-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    align-items: center;
+    background-color: var(--purple);
+    color: var(--white);
+    border-radius: 8px;
+    width: 100%;
+    min-height: 200px;
+    padding: 2em 1.5em;
+}
+
+.upload-panel h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.upload-panel .upload-btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: white;
+    color: var(--purple);
+    border: none;
+    padding: 1em 2.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    transition: background-color 0.3s ease;
+    position: relative;
+    width: auto;
+    text-align: center;
+}
+
+.upload-panel .upload-btn svg {
+    margin-right: 0.8em;
+    font-size: 1.2rem; 
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .upload-panel {
+        padding: 1.5em 1em;
+    }
+
+    .upload-panel h2 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+
+    .upload-panel .upload-btn {
+        width: 100%; 
+        max-width: 500px;
+    }
+}
