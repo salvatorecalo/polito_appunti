@@ -7,7 +7,7 @@ export function Navbar() {
     return (
         <nav className={`navbar ${isOpen ? 'open' : ''}`}>
             <span className="logo">
-                <img src="" alt="Regalo Appunti logo" />
+                <img src="banner.svg" alt="Regalo Appunti logo" fetchPriority="high" />
             </span>
             <button
                 className={`menu-toggle ${isOpen ? 'open' : ''}`}
