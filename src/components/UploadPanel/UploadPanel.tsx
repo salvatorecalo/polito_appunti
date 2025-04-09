@@ -1,18 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './UploadPanel.css';
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 
 export function UploadPanel() {
-    const handleClick = () => {
-        document.getElementById("fileInput").click();
-    };
+    const navigator = useNavigate();
 
     return (
         <article className="upload-panel">
             <h2>Condividi i tuoi appunti <br /> per aiutare altri studenti</h2>
-            <input type="file" id="fileInput" />
             <div>
-                <button className="upload-btn" onClick={handleClick}>
+                <button className="upload-btn" onClick={() => {navigator('/upload')}}>
                     <FontAwesomeIcon icon={faUpload} />
                     Carica Appunti
                 </button>

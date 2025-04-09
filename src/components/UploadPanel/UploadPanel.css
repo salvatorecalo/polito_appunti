@@ -16,10 +16,6 @@
     font-size: clamp(1.5rem, 5vw, 2rem);
 }
 
-.upload-panel input[type="file"] {
-    display: none;
-}
-
 .upload-panel .upload-btn {
     display: flex;
     justify-content: center; 
