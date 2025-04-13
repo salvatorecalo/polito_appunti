@@ -63,7 +63,7 @@ export function UploadPage() {
                 <h2>Carica Materiale</h2>
                 {!isFormValid ? <p style={{color: "red", fontWeight: "bold"}}>Compila tutti i campi per poter inviare il form</p> : <></>}
                 <div>
-                    <label htmlFor="dec">Nome:</label>
+                    <label htmlFor="desc">Nome:</label>
                     <div>
                         <FontAwesomeIcon icon={faBook} />
                         <input
