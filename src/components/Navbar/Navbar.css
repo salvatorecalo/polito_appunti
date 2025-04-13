@@ -10,6 +10,9 @@ nav.navbar {
 
 .logo img {
     height: 40px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-links {
@@ -59,6 +62,7 @@ nav.navbar {
 
 /* Hamburger button */
 .menu-toggle {
+    position: absolute;
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -68,7 +72,8 @@ nav.navbar {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 10;
+    z-index: 2;
+    right: 0;
 }
 
 .menu-toggle .bar {
