@@ -1,3 +1,7 @@
+/* Google Fonts */
+/* Privacy polity: https://developers.google.com/fonts/faq/privacy?hl=it*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+
 /* 
 * Palette of colors or Layout:
 * Any suggestion? Write us on telegram: @polito_appunti 
@@ -15,12 +19,16 @@
   --white: #f5f2f2;
 }
 
+
+
+
 * {
   box-sizing: border-box;
 }
 body, html {
+  font-family: 'Lato', sans-serif;
   margin: 0; 
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
