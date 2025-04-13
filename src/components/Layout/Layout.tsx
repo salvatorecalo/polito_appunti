@@ -3,13 +3,13 @@ import { Navbar } from "../Navbar/Navbar";
 import { Footer } from "../Footer/Footer";
 
 
-export default function Layout() {
+export function Layout() {
     return (
         <>
-            <Navbar />
-            <main style={{ margin: "2em 1em" }}>
+            <section style={{margin: "2em 1em"}}>
+                <Navbar />
                 <Outlet />
-            </main>
+            </section>
             <Footer />
         </>
     );
