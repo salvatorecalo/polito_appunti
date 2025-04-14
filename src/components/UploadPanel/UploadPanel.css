@@ -7,13 +7,16 @@
     color: var(--white);
     border-radius: 8px;
     width: 100%;
+    max-width: 800px;
     min-height: 200px;
     padding: 2em 1.5em;
+    box-sizing: border-box;
 }
 
 .upload-panel h2 {
     text-align: center;
     font-size: clamp(1.5rem, 5vw, 2rem);
+    margin: 0;
 }
 
 .upload-panel .upload-btn {
@@ -29,7 +32,8 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     transition: background-color 0.3s ease;
     position: relative;
-    width: auto;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
 }
 
@@ -38,7 +42,7 @@
     font-size: 1.2rem; 
 }
 
-/* Responsive styles */
+/* Responsive tweaks */
 @media (max-width: 768px) {
     .upload-panel {
         padding: 1.5em 1em;
@@ -50,6 +54,5 @@
 
     .upload-panel .upload-btn {
         width: 100%; 
-        max-width: 500px;
     }
 }

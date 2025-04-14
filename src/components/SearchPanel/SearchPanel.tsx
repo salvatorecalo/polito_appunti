@@ -11,7 +11,7 @@ export function SearchPanel(){
         <article className="search-panel">
             <h2>Cerca gratuitamente materiale <br /> per preparare i tuoi esami</h2>
             <div>
-                <input type="search" placeholder="Cerca appunti, slides, ecc.." />
+                <input type="search" placeholder="Cerca appunti, slides, ecc.." name="search-query"/>
                 <FontAwesomeIcon icon={faSearch} />
             </div>
         </article>

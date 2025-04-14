@@ -1,16 +1,22 @@
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 import './App.css'
-import { HomePage, UploadPage } from './pages';
+import { ErrorPage, HomePage, UploadPage } from './pages';
+import { Layout } from './components';
 
 
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
+      element: <Layout />,
+      errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <HomePage /> }, 
+        { path: "upload", element: <UploadPage /> },
+      ],
     },
     {
-      path: "/upload",
-      element: <UploadPage />,
+      path: "*",
+      element: <Navigate to="/" replace />,
     },
   ]);
 
