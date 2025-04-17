@@ -87,6 +87,49 @@
     opacity: 0.5;
 }
 
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .select-icon {
+    position: absolute;
+    left: 10px;
+    color: #555;
+    pointer-events: none;
+  }
+  
+  .custom-select {
+    width: 100%;
+    padding: 10px 10px 10px 36px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border 0.2s ease-in-out;
+  }
+
+  select,
+::picker(select) {
+  appearance: base-select;
+}
+
+  .custom-select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .popup {
+    margin: 15px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
 @media (max-width: 768px) {
     #UploadPage {
         padding: 1em;
