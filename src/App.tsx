@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 import './App.css'
 import { ErrorPage, HomePage, UploadPage } from './pages';
 import { Layout } from './components';
-import { courses } from './utils/categories';
+import { courses } from './utils';
 
 const courses_router = Object.entries(courses).map(([key, label]) => ({
   path: `/${key}`,

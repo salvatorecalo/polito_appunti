@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { INSERT_API } from "../../../utils/endpoints";
+import { INSERT_API } from "../../../utils/";
 interface FormData {
     desc: string;
     link: string;
