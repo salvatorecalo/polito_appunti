@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router';
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <nav className={`navbar ${isOpen ? 'open' : ''}`}>
-            <span className="logo">
+            <Link className="logo" to="/">
                 <img src="banner.svg" alt="Regalo Appunti logo" fetchPriority="high" />
-            </span>
+            </Link>
             <button
                 className={`menu-toggle ${isOpen ? 'open' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
