@@ -1,24 +1,22 @@
-import { useEffect, useState } from "react";
 import { SearchPanel, UploadPanel } from "../../components";
+import { courses, getRandomColor, lightenOrFade } from "../../utils";
+import { Link } from "react-router";
+import './HomePage.css'
+import { useMemo } from "react";
 
 export function HomePage() {
-    const [data, setData] = useState([]);
 
-    async function fetchData() {
-        try {
-            const response = await fetch('https://studyroompoli.altervista.org/notes/data/cfg.json');
-            console.log("Response:", response);
-            const jsonData = await response.json();
-            setData(jsonData || []); 
-        } catch (error) {
-            console.error("Errore nel fetch dei dati:", error);
-        }
-    }
-
-    useEffect(() => {
-        fetchData();
+    const coloredCourses = useMemo(() => {
+        return Object.entries(courses).map(([key, label]) => {
+            const bgColor = getRandomColor();
+            return {
+                key,
+                label,
+                bgColor,
+                hoverColor: lightenOrFade(bgColor, 0.3),
+            };
+        });
     }, []);
-
     return (
         <main>
             <section id="HomePage">
@@ -28,7 +26,21 @@ export function HomePage() {
                 </section>
 
                 <section className="categories-list">
-                    {<p>Data: {data}</p>}
+                {
+                        coloredCourses.map(({ key, label, bgColor, hoverColor }) => (
+                            <Link
+                                key={key}
+                                to={`/${key}`}
+                                className="category-link"
+                                style={{
+                                    backgroundColor: bgColor,
+                                    '--hover-color': hoverColor,
+                                } as React.CSSProperties}
+                            >
+                                {label}
+                            </Link>
+                        ))
+                    }
                 </section>
             </section>
         </main>
