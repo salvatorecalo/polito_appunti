@@ -1,67 +1,30 @@
 import { faBook, faLink, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './UploadPage.css'
-import { useState } from "react";
+import './UploadPage.css';
+import { courses } from "../../utils/categories";
+import { useUploadPage } from "./hook/useUploadPage";
 
-interface FormData {
-    desc: string;
-    url: string;
-    categoria: string;
-}
 
 export function UploadPage() {
-    const [formData, setFormData] = useState<FormData>({ desc: '', url: '', categoria: 'dummy' });
-    const [isFormValid, setIsFormValid] = useState<boolean>(false);
-
-    const validateForm = () => {
-        const isNameValid = formData.desc.trim() !== '';
-        const isLinkValid = formData.url.trim() !== '' && formData.url.trim().length < 50 && formData.url.trim().startsWith("https://t.me/appuntipolito/");
-        setIsFormValid(isNameValid && isLinkValid);
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData(prevState => {
-            const updatedFormData = { ...prevState, [name]: value };
-            return updatedFormData;
-        });
-        validateForm();
-    };
-
-    const handleBlur = () => {
-        validateForm(); 
-    };
-
-    // Gestore per l'invio del modulo
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!isFormValid) {
-            return;
-        }
-        console.log(JSON.stringify(formData));
-        try {
-            const response = await fetch("https://studyroompoli.altervista.org/notes/edit.php", {
-                method: "POST",
-                body: JSON.stringify(formData),
-                headers: {
-                    "Content-Type": "application/json; charset=UTF-8"
-                }
-            });
-            if (response.ok) {
-                console.log("Dati inviati con successo");
-            } else {
-                console.error("Errore nell'invio dei dati");
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
+    const {
+        actions, popupMessage, formData, isFormValid
+      } = useUploadPage();
     return (
         <section id="UploadPage">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={actions.handleSubmit}>
                 <h2>Carica Materiale</h2>
-                {!isFormValid ? <p style={{color: "red", fontWeight: "bold"}}>Compila tutti i campi per poter inviare il form</p> : <></>}
+                {!isFormValid && (
+                    <p style={{ color: "red", fontWeight: "bold" }}>
+                        Compila tutti i campi per poter inviare il form
+                    </p>
+                )}
+
+                {popupMessage && (
+                    <div className="popup">
+                        {popupMessage}
+                    </div>
+                )}
+
                 <div>
                     <label htmlFor="desc">Nome:</label>
                     <div>
@@ -72,8 +35,8 @@ export function UploadPage() {
                             name="desc"
                             placeholder="Nome del contenuto"
                             value={formData.desc}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
+                            onChange={actions.handleChange}
+                            onBlur={actions.handleBlur}
                         />
                     </div>
                 </div>
@@ -84,15 +47,40 @@ export function UploadPage() {
                         <input
                             type="text"
                             id="url"
-                            name="url"
+                            name="link"
                             placeholder="Link al messaggio Telegram"
-                            value={formData.url}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
+                            value={formData.link}
+                            onChange={actions.handleChange}
+                            onBlur={actions.handleBlur}
                         />
                     </div>
                 </div>
-                <p style={{color: "red"}}>Il Link telegram deve iniziare per forza con https://t.me/appuntipolito !</p>
+                <div>
+                    <label htmlFor="cat" className="form-label">Categoria:</label>
+                    <div className="select-wrapper">
+                        <FontAwesomeIcon icon={faBook} className="select-icon" />
+                        <select
+                            id="cat"
+                            name="cat"
+                            value={formData.cat}
+                            onChange={actions.handleChange}
+                            onBlur={actions.handleBlur}
+                            className="custom-select"
+                        >
+                            <option value="">-- Seleziona una categoria --</option>
+                            {Object.entries(courses).map(([key, value]) => (
+                                <option key={key} value={key}>
+                                    {value}
+                                </option>
+                            ))}
+                        </select>
+
+                    </div>
+                </div>
+
+                <p style={{ color: "red" }}>
+                    Il Link telegram deve iniziare per forza con https://t.me/appuntipolito !
+                </p>
                 <button type="submit" disabled={!isFormValid}>
                     Aggiungi
                     <FontAwesomeIcon icon={faPlus} />
