@@ -1,29 +1,33 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { courses } from "../../utils";
 import './CategoryList.css'
+import { getCategories } from "../../utils";
 
 export function CategoryList() {
-    const coloredCourses = useMemo(() => {
-        return Object.entries(courses).map(([key, label]) => {
-            return {
-                key,
-                label,
-            };
-        });
+    const [courses, setCourses] = useState<{ [key: string]: string }>({});
+
+    useEffect(() => {
+        async function fetchData() {
+            const data = await getCategories();
+            setCourses(data);
+        }
+        fetchData();
     }, []);
+
     return (
         <section className="categories-list">
             {
-                coloredCourses.map(({ key, label }) => (
-                    key != "dummy" ? <Link
-                        key={key}
-                        to={`/${key}`}
-                        className="category-link"
-                    >
-                        {label}
-                    </Link> : <></>
-                ))
+                Object.entries(courses).map(([key, label]) =>
+                    key !== "dummy" ? (
+                        <Link
+                            key={key}
+                            to={`/${key}`}
+                            className="category-link"
+                        >
+                            {label}
+                        </Link>
+                    ) : null
+                )
             }
         </section>
     );

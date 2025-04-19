@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { INSERT_API } from "../../../utils/";
+import { useEffect, useState } from "react";
+import { getCategories, INSERT_API } from "../../../utils/";
 interface FormData {
     desc: string;
     link: string;
@@ -8,15 +8,23 @@ interface FormData {
 }
 export function useUploadPage(){
     const [formData, setFormData] = useState<FormData>({ desc: '', link: '', cat: '', sub: null });
-        const [isFormValid, setIsFormValid] = useState<boolean>(false);
-        const [popupMessage, setPopupMessage] = useState<string | null>(null);
+    const [isFormValid, setIsFormValid] = useState<boolean>(false);
+    const [popupMessage, setPopupMessage] = useState<string | null>(null);
+    const [courses, setCourses] = useState<{ [key: string]: string }>({});
     
-        const validateForm = () => {
-            const isNameValid = formData.desc.trim() !== '';
-            const isLinkValid = formData.link.trim() !== '' && formData.link.trim().startsWith("https://t.me/appuntipolito/");
-            const isCatValid = formData.cat.trim() !== '';
-            setIsFormValid(isNameValid && isLinkValid && isCatValid);
-        };
+    useEffect(() => {
+            async function fetchData() {
+                const data = await getCategories();
+                setCourses(data);
+            }
+            fetchData();
+    }, []);
+    const validateForm = () => {
+        const isNameValid = formData.desc.trim() !== '';
+        const isLinkValid = formData.link.trim() !== '' && formData.link.trim().startsWith("https://t.me/appuntipolito/");
+        const isCatValid = formData.cat.trim() !== '';
+        setIsFormValid(isNameValid && isLinkValid && isCatValid);
+    };
     
     
         const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -81,6 +89,7 @@ export function useUploadPage(){
             },
             formData,
             isFormValid,
-            popupMessage
+            popupMessage,
+            courses
         }
 }

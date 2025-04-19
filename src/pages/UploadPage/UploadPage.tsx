@@ -1,13 +1,12 @@
 import { faBook, faLink, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './UploadPage.css';
-import { courses } from "../../utils/categories";
 import { useUploadPage } from "./hook/useUploadPage";
 
 
 export function UploadPage() {
     const {
-        actions, popupMessage, formData, isFormValid
+        actions, popupMessage, formData, isFormValid, courses
       } = useUploadPage();
     return (
         <section id="UploadPage">

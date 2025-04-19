@@ -2,9 +2,9 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 import './App.css'
 import { HomePage, UploadPage } from './pages';
 import { Layout } from './components';
-import { courses } from './utils';
+import { getCategories } from './utils';
 
-const courses_router = Object.entries(courses).map(([key, label]) => ({
+const courses_router = Object.entries(getCategories).map(([key, label]) => ({
   path: `/${key}`,
   element: <div>{label}</div>
 }));
