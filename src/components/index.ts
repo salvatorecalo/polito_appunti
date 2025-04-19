@@ -8,3 +8,4 @@ export {Navbar} from './Navbar/Navbar';
 export {SearchPanel} from './SearchPanel/SearchPanel';
 export {UploadPanel} from './UploadPanel/UploadPanel'
 export {Layout} from './Layout/Layout'
+export {CategoryList} from './CategoryList/CategoryList'

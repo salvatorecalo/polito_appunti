@@ -1,0 +1,14 @@
+.categories-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-link {
+    text-align: center;
+    padding: 1em 1.4em;
+    border-radius: 4px;
+    margin: 0em 0em 1.2em 0em;
+    color: white;
+    text-decoration: none;
+    background-color: var(--light-blue);
+}
