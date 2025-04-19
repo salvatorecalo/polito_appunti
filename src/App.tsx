@@ -10,6 +10,7 @@ import './App.css';
 import { HomePage, UploadPage } from './pages';
 import { Layout } from './components';
 import { getCategories } from './utils';
+import { CategoryPage } from './pages/CategoryPage/CategoryPage';
 
 export default function App() {
   const [routes, setRoutes] = useState<RouteObject[] | null>(null);
@@ -20,7 +21,7 @@ export default function App() {
 
       const courseRoutes: RouteObject[] = Object.entries(categories).map(([key, label]) => ({
         path: `/${key}`,
-        element: <div>{label}</div>
+        element: <CategoryPage label={label} categoryKey={key} />
       }));
 
       const baseRoutes: RouteObject[] = [
@@ -45,7 +46,7 @@ export default function App() {
     setupRoutes();
   }, []);
 
-  if (!routes) return <div>Caricamento rotte...</div>;
+  if (!routes) return <div style={{textAlign: 'center',}}>Caricamento rotte...</div>;
 
   const router = createBrowserRouter(routes);
 
