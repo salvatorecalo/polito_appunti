@@ -12,3 +12,8 @@
     text-decoration: none;
     background-color: var(--light-blue);
 }
+
+.category-section-title {
+    text-align: center;
+    font-size: clamp(1rem, 1.2rem, 1.4rem);
+}

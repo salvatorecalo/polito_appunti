@@ -16,6 +16,7 @@ export function CategoryList() {
 
     return (
         <section className="categories-list">
+            <h2 className="category-section-title">Naviga tra le varie sezioni</h2>
             {
                 Object.entries(courses).map(([key, label]) =>
                     key !== "dummy" ? (
