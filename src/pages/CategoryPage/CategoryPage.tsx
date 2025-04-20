@@ -38,12 +38,14 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
   }, []);
 
   return (
-    <section>
-      <h2>{label}</h2>
+    <section className="category-page">
+    <hgroup>
+        <h2>{label}</h2>
+    </hgroup>
 
       {data ? (
         <>
-          <h3>Materiale Esterno</h3>
+          <h3>Materiale Esterno (al telegram)</h3>
           {data.ext.length > 0 ? (
             data.ext.map((item, idx) => (
               <article key={`ext-${idx}`}>
