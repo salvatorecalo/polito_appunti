@@ -21,12 +21,13 @@ export type CategoryPageProps = {
 
 export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
   const [data, setData] = useState<CategoryData | null>(null);
-
+  const [subs, setSubs] = useState<Record<string, string>>({});
   async function getData() {
     try {
       const response = await fetch(`${CATEGORY_DATA_API}id=${categoryKey}`);
       const json = await response.json();
       setData(json);
+      setSubs(json.subs)
     } catch (error) {
       console.error("Errore nel fetch:", error);
     }
@@ -35,7 +36,7 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
   useEffect(() => {
     getData();
   }, []);
-
+  
   return (
     <section className="category-page">
     <hgroup>
@@ -65,7 +66,7 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.desc}
                 </a>
-                {item.sub && <p>{item.sub}</p>}
+                {item.sub && <p>{subs[item.sub]}</p>}
               </article>
             ))
           ) : (
