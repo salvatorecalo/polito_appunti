@@ -1,4 +1,4 @@
-export {courses} from './categories'
 export {INSERT_API} from './endpoints'
-export {getRandomColor} from './GenerateRandomColor'
-export {lightenOrFade} from './lightenOrFade'
+export {GET_CONFIG_API} from './endpoints'
+export {getCategories} from './getCategories'
+export {CATEGORY_DATA_API} from './endpoints'
