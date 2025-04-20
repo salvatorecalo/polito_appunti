@@ -1,6 +1,14 @@
-h2 {
+hgroup {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
     text-align: center;
+    background-color: var(--blue);
+    color: var(--white);
+    margin: 0;
+    min-height: 150px;
 }
+
 
 h3 {
     text-align: center;
@@ -8,4 +16,66 @@ h3 {
 
 article {
     text-align: center;
+}
+
+.category-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 !important;
+    gap: 1em;
+}
+
+.category-page article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gray-light, #ddd);
+    border-radius: 10px;
+    padding: 1.2em 1.6em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    position: relative; 
+    margin: 1em;
+}
+
+.category-page article:hover {
+    cursor: pointer;
+    background-color: var(--blue-light, #f0f4ff);
+    transform: scale(1.01);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.category-page article a {
+    color: var(--blue, #0047ab);
+    text-decoration: none;
+    font-weight: 500;
+    word-break: break-word;
+    position: relative;
+}
+
+.category-page article a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--blue);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.category-page article:hover a::after {
+    width: 100%; 
+}
+
+@media (max-width: 600px) {
+    .category-page article {
+        flex-direction: column;
+        padding: 1em;
+    }
 }
