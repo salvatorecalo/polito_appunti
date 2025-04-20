@@ -2,13 +2,9 @@
 import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
 import { HomePage, UploadPage } from './pages';
 import { Layout } from './components';
-import { useState, useEffect } from 'react';
 
 export default function App() {
-  const [routes, setRoutes] = useState<RouteObject[] | null>(null);
-
-  useEffect(() => {
-    const baseRoutes: RouteObject[] = [
+    const routes: RouteObject[] = [
       {
         path: "/",
         element: <Layout />,
@@ -18,8 +14,6 @@ export default function App() {
         ],
       },
     ];
-    setRoutes(baseRoutes);
-  }, []);
 
   if (!routes) return <div style={{ textAlign: 'center' }}>Caricamento rotte...</div>;
 

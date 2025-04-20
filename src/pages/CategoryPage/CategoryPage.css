@@ -40,7 +40,6 @@ article, .category-page p {
     text-align: center;
     font-size: clamp(0.95rem, 2.5vw, 1.05rem);
     position: relative; 
-    margin: 1em;
 }
 
 .category-page article:hover {
