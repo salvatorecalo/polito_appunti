@@ -139,4 +139,9 @@ nav.navbar {
         padding: 1em;
         border-radius: 0;
     }
+
+    .logo img {
+        width: 80%;
+    }
+
 }
