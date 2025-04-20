@@ -1,18 +1,9 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import './CategoryList.css'
-import { getCategories } from "../../utils";
+import { useCategoryList } from "./hooks/useCategoryList";
 
 export function CategoryList() {
-    const [courses, setCourses] = useState<{ [key: string]: string }>({});
-
-    useEffect(() => {
-        async function fetchData() {
-            const data = await getCategories();
-            setCourses(data);
-        }
-        fetchData();
-    }, []);
+    const { courses } = useCategoryList()
 
     return (
         <section className="categories-list">

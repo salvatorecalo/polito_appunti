@@ -1,4 +1,4 @@
-import { CategoryList, SearchPanel, UploadPanel } from "../../components";
+import { CategoryList, SearchPanel, UploadPanel, GeneralMaterial } from "../../components";
 import './HomePage.css'
 
 export function HomePage() {
@@ -10,8 +10,10 @@ export function HomePage() {
                     <SearchPanel />
                     <UploadPanel />
                 </section>
-
-                <CategoryList />
+                <section className="action-container">
+                    <GeneralMaterial />
+                    <CategoryList />
+                </section>
             </section>
         </main>
     );

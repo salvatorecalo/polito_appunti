@@ -1,45 +1,13 @@
-import { useEffect, useState } from "react";
-import { CATEGORY_DATA_API } from "../../utils";
-import './CategoryPage.css'
+import { useGeneralMaterial } from "./hooks/useGeneralMaterial"
+import './GeneralMaterial.css'
 
-export type LinkItem = {
-  link: string;
-  desc: string;
-  sub: string | null;
-};
-
-export type CategoryData = {
-  status: number;
-  subs: any[];
-  ext: LinkItem[];
-  int: LinkItem[];
-};
-
-export type CategoryPageProps = {
-  label: string;
-  categoryKey: string;
-};
-
-export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
-  const [data, setData] = useState<CategoryData | null>(null);
-
-  async function getData() {
-    try {
-      const response = await fetch(`${CATEGORY_DATA_API}id=${categoryKey}`);
-      const json = await response.json();
-      setData(json);
-    } catch (error) {
-      console.error("Errore nel fetch:", error);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  return (
-    <section>
-      <h2>{label}</h2>
+export function GeneralMaterial() {
+    const {
+        data
+    } = useGeneralMaterial()
+    return (
+      <section className="general-material">
+      <h2>Sfogia tra i vari documenti</h2>
 
       {data ? (
         <>
@@ -75,5 +43,5 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
         <p>Caricamento dati...</p>
       )}
     </section>
-  );
+    )
 }

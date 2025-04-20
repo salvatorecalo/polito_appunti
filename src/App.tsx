@@ -6,7 +6,6 @@ import {
   RouterProvider,
   RouteObject
 } from 'react-router-dom';
-import './App.css';
 import { HomePage, UploadPage } from './pages';
 import { Layout } from './components';
 import { getCategories } from './utils';
