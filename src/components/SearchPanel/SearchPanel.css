@@ -38,8 +38,9 @@
 }
 
 .search-panel svg {
+    cursor: pointer;
     position: absolute;
-    left: 0.8em;
+    right: 0.8em;
     top: 50%;
     transform: translateY(-50%);
     color: var(--black);

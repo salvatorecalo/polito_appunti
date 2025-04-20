@@ -13,7 +13,7 @@ export function CategoryList() {
                     key !== "dummy" ? (
                         <Link
                             key={key}
-                            to={`/${key}`}
+                            to={`/?id=${key}`}
                             className="category-link"
                         >
                             {label}
