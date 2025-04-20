@@ -1,12 +1,12 @@
 footer {
     margin: 0;
-    color: var(--white);
     width: 100%;
+    color: var(--white);
     background-color: var(--orange);
     text-align: center;
     padding: 1.5em 2em;
 }
 
-footer a:visited {
-    color: var(--dark-blue);
+footer a {
+    color: var(--white);
 }
