@@ -10,7 +10,6 @@ export type LinkItem = {
 
 export type CategoryData = {
   status: number;
-  subs: any[];
   ext: LinkItem[];
   int: LinkItem[];
 };
