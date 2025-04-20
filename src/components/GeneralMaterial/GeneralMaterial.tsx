@@ -11,7 +11,7 @@ export function GeneralMaterial() {
 
       {data ? (
         <>
-          <h3>Materiale Esterno</h3>
+          <h3>Materiale Esterno (al gruppo telegram)</h3>
           {data.ext.length > 0 ? (
             data.ext.map((item, idx) => (
               <article key={`ext-${idx}`}>
