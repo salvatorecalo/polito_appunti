@@ -1,6 +1,6 @@
 // App.tsx
 import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
-import { HomePage, UploadPage } from './pages';
+import { ErrorPage, HomePage, UploadPage } from './pages';
 import { Layout } from './components';
 
 export default function App() {
@@ -8,6 +8,7 @@ export default function App() {
       {
         path: "/",
         element: <Layout />,
+        errorElement: <ErrorPage />,
         children: [
           { index: true, element: <HomePage /> },
           { path: "upload", element: <UploadPage /> },
