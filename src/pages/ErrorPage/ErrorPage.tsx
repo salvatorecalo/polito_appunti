@@ -12,7 +12,7 @@ export function ErrorPage() {
                 alt="Errore 404: ricerca non trovata" 
                 fetchPriority='high'
             />
-            <p>Non abbiamo trovato alcun risultato per la ricerca: <strong>{queryId}</strong></p>
+            {queryId == "empty" ? <p>Attento hai inserito una stringa vuota</p>: <p>Non abbiamo trovato alcun risultato per la ricerca: <strong>{queryId}</strong></p> }
             <a href="/">Ritorna alla Home Page</a>
         </section>
     );

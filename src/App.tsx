@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
 import { ErrorPage, HomePage, UploadPage } from './pages';
 import { Layout } from './components';
+import { SearchPage } from './pages/SearchPage/SearchPage';
 
 export default function App() {
     const routes: RouteObject[] = [
@@ -12,6 +13,7 @@ export default function App() {
         children: [
           { index: true, element: <HomePage /> },
           { path: "upload", element: <UploadPage /> },
+          {path: "search", element: <SearchPage />}
         ],
       },
     ];

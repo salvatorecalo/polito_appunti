@@ -1,0 +1,59 @@
+.SearchResults p {
+    text-align: center;
+}
+.SearchResults ul {
+    list-style: none;
+}
+
+.SearchResults .search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gray-light, #ddd);
+    border-radius: 10px;
+    padding: 1.2em 1.6em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    position: relative; 
+}
+
+.SearchResults .search-item:hover {
+    cursor: pointer;
+    background-color: var(--blue-light, #f0f4ff);
+    transform: scale(1.01);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.SearchResults .search-item a {
+    color: var(--blue, #0047ab);
+    text-decoration: none;
+    font-weight: 500;
+    word-break: break-word;
+    position: relative;
+}
+
+.SearchResults .search-item a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--blue);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.SearchResults .search-item:hover a::after {
+    width: 100%; 
+}
+
+@media (max-width: 600px) {
+    .SearchResults .search-item {
+        flex-direction: column;
+        padding: 1em;
+    }
+}
