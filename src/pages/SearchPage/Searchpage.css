@@ -1,33 +1,11 @@
-hgroup {
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    text-align: center;
-    background-color: var(--blue);
-    color: var(--white);
-    margin: 0;
-    min-height: 150px;
-}
-
-
-h3 {
+.SearchResults p {
     text-align: center;
 }
-
-article, .category-page p {
-    text-align: center;
+.SearchResults ul {
+    list-style: none;
 }
 
-.category-page {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 !important;
-    gap: 1em;
-}
-
-.category-page article {
+.SearchResults .search-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,14 +20,14 @@ article, .category-page p {
     position: relative; 
 }
 
-.category-page article:hover {
+.SearchResults .search-item:hover {
     cursor: pointer;
     background-color: var(--blue-light, #f0f4ff);
     transform: scale(1.01);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.category-page article a {
+.SearchResults .search-item a {
     color: var(--blue, #0047ab);
     text-decoration: none;
     font-weight: 500;
@@ -57,7 +35,7 @@ article, .category-page p {
     position: relative;
 }
 
-.category-page article a::after {
+.SearchResults .search-item a::after {
     content: '';
     display: block;
     width: 0;
@@ -69,12 +47,12 @@ article, .category-page p {
     left: 0;
 }
 
-.category-page article:hover a::after {
+.SearchResults .search-item:hover a::after {
     width: 100%; 
 }
 
 @media (max-width: 600px) {
-    .category-page article {
+    .SearchResults .search-item {
         flex-direction: column;
         padding: 1em;
     }

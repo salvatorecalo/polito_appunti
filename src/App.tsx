@@ -1,25 +1,22 @@
 // App.tsx
 import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
-import { HomePage, UploadPage } from './pages';
+import { ErrorPage, HomePage, UploadPage } from './pages';
 import { Layout } from './components';
-import { useState, useEffect } from 'react';
+import { SearchPage } from './pages/SearchPage/SearchPage';
 
 export default function App() {
-  const [routes, setRoutes] = useState<RouteObject[] | null>(null);
-
-  useEffect(() => {
-    const baseRoutes: RouteObject[] = [
+    const routes: RouteObject[] = [
       {
         path: "/",
         element: <Layout />,
+        errorElement: <ErrorPage />,
         children: [
           { index: true, element: <HomePage /> },
           { path: "upload", element: <UploadPage /> },
+          {path: "search", element: <SearchPage />}
         ],
       },
     ];
-    setRoutes(baseRoutes);
-  }, []);
 
   if (!routes) return <div style={{ textAlign: 'center' }}>Caricamento rotte...</div>;
 
