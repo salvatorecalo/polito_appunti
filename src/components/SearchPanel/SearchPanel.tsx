@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './SearchPanel.css'
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router";
 import { SEARCH_API } from "../../utils/endpoints";
 
@@ -22,7 +22,7 @@ export function SearchPanel() {
         try {
             const response = await fetch(`${SEARCH_API}id=${encodeURIComponent(trimmedSearch)}`);
             const result = await response.json();
-    
+
             if (result.status === 0) {
                 // caso: ricerca con risultati
                 navigator(`/search?id=${encodeURIComponent(trimmedSearch)}`);
@@ -36,23 +36,30 @@ export function SearchPanel() {
             navigator("/search?error=network");
         }
     }
-    
-    
+
+    function handleSubmit (e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+        handleSearch();
+    }
+
+
 
     return (
-        <article className="search-panel">
-            <h2>Cerca gratuitamente materiale <br /> per preparare i tuoi esami</h2>
-            <div>
-                <input
-                    type="search"
-                    placeholder="Cerca appunti, slides, ecc.."
-                    name="search-query"
-                    value={searchText}
-                    onChange={handleChange}
-                    required
-                />
-                <FontAwesomeIcon icon={faSearch} onClick={handleSearch} />
-            </div>
-        </article>
+        <form onSubmit={handleSubmit}>
+            <article className="search-panel">
+                <h2>Cerca gratuitamente materiale <br /> per preparare i tuoi esami</h2>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Cerca appunti, slides, ecc.."
+                        name="search-query"
+                        value={searchText}
+                        onChange={handleChange}
+                        required
+                    />
+                    <FontAwesomeIcon icon={faSearch} onClick={handleSearch} />
+                </div>
+            </article>
+        </form>
     );
 }
