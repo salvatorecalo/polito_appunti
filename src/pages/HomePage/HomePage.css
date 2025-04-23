@@ -4,6 +4,10 @@
     gap: 1.2em;
 }
 
+.action-container:nth-child(2) {
+    flex-direction: column-reverse;
+}
+
 @media screen and (max-width: 768px){
     .action-container {
         flex-direction: column;
