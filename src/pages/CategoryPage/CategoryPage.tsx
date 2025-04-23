@@ -53,7 +53,6 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
       }, 100);
     }
   }, [data, location]);
-
   return (
     <section className="category-page">
       <hgroup>
