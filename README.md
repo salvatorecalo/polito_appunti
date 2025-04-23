@@ -2,6 +2,8 @@
 Open-source Web Application for Sharing Politecnico di Torino's Course Notes
 Polito Appunti is an open-source web application designed to help students at Politecnico di Torino share, discover, and collaborate on course notes. Whether you’re looking for class materials or contributing your own, this platform aims to make note-sharing easy and efficient for everyone.
 
+## [Api repository](https://github.com/lithium333/regaloappunti)
+
 ## 📝 Notes for Contributors
 Every commit should follow Conventional Commit rules
 
