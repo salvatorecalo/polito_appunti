@@ -67,6 +67,7 @@ export function UploadPage() {
                             className="custom-select"
                         >
                             <option value="">-- Seleziona una categoria --</option>
+                            <option value="gen">MATERIALE GENERICO</option>
                             {Object.entries(courses).map(([key, value]) => (
                                 <option key={key} value={key}>
                                     {value}
