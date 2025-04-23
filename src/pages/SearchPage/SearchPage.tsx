@@ -1,9 +1,10 @@
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, data } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SEARCH_API } from "../../utils/endpoints";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { SearchPanel } from "../../components";
 import './Searchpage.css'
+import { getCategories } from "../../utils";
 
 interface ApiResponse {
   status: number;
@@ -19,13 +20,26 @@ interface Result {
 }
 
 export function SearchPage() {
-
   const [searchParams] = useSearchParams();
   const query = searchParams.get("id");
   const error = searchParams.get("error");
   const navigate = useNavigate();
   const [results, setResults] = useState<Result[]>([]);  // Results should be of type Result[]
   const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    async function loadCategories() {
+      try {
+        const data = await getCategories();
+        setCategories(data);
+      } catch (error) {
+        console.error("Errore nel fetch delle categorie:", error);
+      }
+    }
+
+    loadCategories();
+  }, []);
 
   useEffect(() => {
     if (!query && !error) {
@@ -88,7 +102,6 @@ export function SearchPage() {
   }, [query, error, navigate]);
 
   if (loading) return <p>Caricamento...</p>;
-  console.log(results)
   if (error === 'empty') {
     return <ErrorPage />;
   }
@@ -126,6 +139,9 @@ export function SearchPage() {
                     <a href={result.internalMaterials[2]} target="_blank" rel="noopener noreferrer">
                       {result.internalMaterials[3]}
                     </a>
+                    {categories[result.internalMaterials[0]] && (
+                      <p>{categories[result.internalMaterials[0]]}</p>
+                    )}
                   </article>
                 </li>
               ) : null
@@ -145,6 +161,9 @@ export function SearchPage() {
                     <a href={result.externalMaterials[2]} target="_blank" rel="noopener noreferrer">
                       {result.externalMaterials[3]}
                     </a>
+                    {categories[result.internalMaterials[0]] && (
+                      <p>{categories[result.internalMaterials[0]]}</p>
+                    )}
                   </article>
                 </li>
               ) : null
