@@ -19,7 +19,7 @@ interface Result {
 }
 
 export function SearchPage() {
-  
+
   const [searchParams] = useSearchParams();
   const query = searchParams.get("id");
   const error = searchParams.get("error");
@@ -88,7 +88,7 @@ export function SearchPage() {
   }, [query, error, navigate]);
 
   if (loading) return <p>Caricamento...</p>;
-
+  console.log(results)
   if (error === 'empty') {
     return <ErrorPage />;
   }
@@ -104,8 +104,8 @@ export function SearchPage() {
               result.category.length > 0 ? (
                 <li key={`cat-${i}`}>
                   <article className="search-item">
-                    <a href={`/?id=${result.category[1]}`} target="_blank" rel="noopener noreferrer">
-                      {result.category[0]}
+                    <a href={`/?id=${result.category[1]}${result.category[3] ? `#${result.category[3]}` : ''}`} target="_blank" rel="noopener noreferrer">
+                      {result.category[2] ? result.category[0] + ": " + result.category[2] : result.category[0]}
                     </a>
                   </article>
                 </li>
