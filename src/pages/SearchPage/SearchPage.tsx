@@ -1,4 +1,4 @@
-import { useSearchParams, useNavigate, data } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SEARCH_API } from "../../utils/endpoints";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
