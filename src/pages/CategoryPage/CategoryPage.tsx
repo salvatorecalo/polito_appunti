@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { CATEGORY_DATA_API } from "../../utils";
-import './CategoryPage.css'
+import './CategoryPage.css';
 
 export type LinkItem = {
   link: string;
@@ -12,6 +13,7 @@ export type CategoryData = {
   status: number;
   ext: LinkItem[];
   int: LinkItem[];
+  subs: Record<string, string>;
 };
 
 export type CategoryPageProps = {
@@ -21,34 +23,49 @@ export type CategoryPageProps = {
 
 export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
   const [data, setData] = useState<CategoryData | null>(null);
-  const [subs, setSubs] = useState<Record<string, string>>({});
-  async function getData() {
-    try {
-      const response = await fetch(`${CATEGORY_DATA_API}id=${categoryKey}`);
-      const json = await response.json();
-      setData(json);
-      setSubs(json.subs)
-    } catch (error) {
-      console.error("Errore nel fetch:", error);
-    }
-  }
+  const location = useLocation();
 
   useEffect(() => {
+    async function getData() {
+      try {
+        const response = await fetch(`${CATEGORY_DATA_API}id=${categoryKey}`);
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error("Errore nel fetch:", error);
+      }
+    }
+
     getData();
-  }, []);
-  
+  }, [categoryKey]);
+
+  useEffect(() => {
+    if (!data) return;
+
+    const hash = location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.slice(1); // rimuove #
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }, [data, location]);
+
   return (
     <section className="category-page">
-    <hgroup>
+      <hgroup>
         <h2>{label}</h2>
-    </hgroup>
+      </hgroup>
 
       {data ? (
         <>
           <h3>Materiale Esterno (al telegram)</h3>
           {data.ext.length > 0 ? (
             data.ext.map((item, idx) => (
-              <article key={`ext-${idx}`}>
+              <article key={`ext-${idx}`} {...(item.sub ? { id: item.sub } : {})}>
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.desc}
                 </a>
@@ -62,11 +79,11 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
           <h3>Materiale Interno</h3>
           {data.int.length > 0 ? (
             data.int.map((item, idx) => (
-              <article key={`int-${idx}`}>
+              <article key={`int-${idx}`} {...(item.sub ? { id: item.sub } : {})}>
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.desc}
                 </a>
-                {item.sub && <p>{subs[item.sub]}</p>}
+                {item.sub && <p>{data.subs[item.sub]}</p>}
               </article>
             ))
           ) : (
