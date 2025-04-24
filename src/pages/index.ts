@@ -1,3 +1,6 @@
 export {HomePage} from './HomePage/HomePage'
 export {UploadPage} from'./UploadPage/UploadPage'
 export {ErrorPage} from './ErrorPage/ErrorPage'
+export {SearchPage} from './SearchPage/SearchPage'
+export {CategoryPage} from './CategoryPage/CategoryPage'
+export {CreditsPage} from './CreditsPage/CreditsPage'
