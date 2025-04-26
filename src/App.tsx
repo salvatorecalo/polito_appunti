@@ -1,6 +1,6 @@
 // App.tsx
 import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
-import { ErrorPage, HomePage, UploadPage, SearchPage, CreditsPage } from './pages';
+import { ErrorPage, HomePage, UploadPage, SearchPage, CreditsPage, OpenSourcePage } from './pages';
 import { Layout } from './components';
 
 export default function App() {
@@ -13,7 +13,8 @@ export default function App() {
           { index: true, element: <HomePage /> },
           { path: "upload", element: <UploadPage /> },
           { path: "credits", element: <CreditsPage /> },
-          {path: "search", element: <SearchPage />}
+          {path: "search", element: <SearchPage />},
+          {path: "opensource", element: <OpenSourcePage />},
         ],
       },
     ];
