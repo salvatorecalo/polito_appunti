@@ -4,7 +4,6 @@ nav.navbar {
     justify-content: space-between;
     align-items: center;
     padding: 0em 0em 2em 0em;
-    background-color: white;
     position: relative;
 }
 
@@ -24,7 +23,7 @@ nav.navbar {
 .nav-links li a {
     font-size: clamp(0.8rem, 1.7vw, 1rem);
     text-decoration: none;
-    color: var(--black);
+    color: var(--text-color);
     position: relative;
 }
 

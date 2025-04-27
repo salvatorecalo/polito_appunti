@@ -4,6 +4,7 @@
     align-items: center;
     padding: 2em;
     box-sizing: border-box;
+    color: var(--text-color);
 }
 
 #UploadPage form {
@@ -106,13 +107,14 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #fff;
+    background-color: var(--text-color);
     transition: border 0.2s ease-in-out;
   }
 
   select,
 ::picker(select) {
   appearance: base-select;
+  color: var(--bg-color);
 }
 
   .custom-select:focus {

@@ -1,7 +1,12 @@
+.creditsPage {
+    color: var(--text-color);
+}
+
 .creditsPage ul {
     list-style: none;
 }
 
 .creditsPage ul li a {
-    text-decoration: none;
+    text-decoration: underline;
+    color: var(--text-color);
 }

@@ -34,7 +34,6 @@
 
 .search-panel input::placeholder {
     font-size: clamp(0.85rem, 2vw, 1rem);
-    color: var(--gray-dark, #666);
 }
 
 .search-panel svg {
