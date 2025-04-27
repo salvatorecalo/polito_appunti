@@ -1,4 +1,4 @@
-h.category-page hgroup {
+.category-page hgroup {
     display: flex;
     align-items: center; 
     justify-content: center;
@@ -10,8 +10,10 @@ h.category-page hgroup {
 }
 
 
-h3 {
+.category-page h3, .category-page p {
     text-align: center;
+    color: var(--text-color);
+
 }
 
 article, .category-page p {

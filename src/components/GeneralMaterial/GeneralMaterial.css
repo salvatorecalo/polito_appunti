@@ -8,6 +8,12 @@
 }
 .general-material h2 {
     text-align: center;
+    color: var(--text-color);
+}
+
+.general-material h3 {
+    text-align: center;
+    color: var(--text-color);
 }
 .general-material article {
     display: flex;
@@ -25,7 +31,7 @@
 
 .general-material article:hover {
     cursor: pointer;
-    background-color: var(--blue-light, #f0f4ff);
+    background-color: var(--bg-color);
     transform: scale(1.01);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
