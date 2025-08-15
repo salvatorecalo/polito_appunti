@@ -6,8 +6,10 @@ import { useUploadPage } from "./hook/useUploadPage";
 
 export function UploadPage() {
     const {
-        actions, popupMessage, formData, isFormValid, courses
+        actions, popupMessage, formData, isFormValid, courses, categoryOption
       } = useUploadPage();
+
+      console.log(`category option: ${categoryOption}`)
     return (
         <section id="UploadPage">
             <form onSubmit={actions.handleSubmit}>
@@ -58,7 +60,9 @@ export function UploadPage() {
                     <label htmlFor="cat" className="form-label">Categoria:</label>
                     <div className="select-wrapper">
                         <FontAwesomeIcon icon={faBook} className="select-icon" />
-                        <select
+                        {
+                            categoryOption == "gen" ?
+                                    <select
                             id="cat"
                             name="cat"
                             value={formData.cat}
@@ -74,7 +78,24 @@ export function UploadPage() {
                                 </option>
                             ))}
                         </select>
-
+                                 :
+                                 <select
+                            id="cat"
+                            name="cat"
+                            value={categoryOption}
+                            onChange={actions.handleChange}
+                            onBlur={actions.handleBlur}
+                            className="custom-select"
+                        >
+                            <option value="">-- Seleziona una categoria --</option>
+                            <option value="gen">MATERIALE GENERICO</option>
+                            {Object.entries(courses).map(([key, value]) => (
+                                <option key={key} value={key}>
+                                    {value}
+                                </option>
+                            ))}
+                        </select>
+                        }
                     </div>
                 </div>
 

@@ -13,7 +13,6 @@
 .category-page h3, .category-page p {
     text-align: center;
     color: var(--text-color);
-
 }
 
 article, .category-page p {
@@ -80,4 +79,25 @@ article, .category-page p {
         flex-direction: column;
         padding: 1em;
     }
+}
+
+.categoryUploadButton {
+    width: 100%;
+    height: 3.5em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--purple);
+    color: var(--white);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.categoryUploadButton:hover {
+    background-color: var(--dark-purple);
+    transition: 0.2s ease-in-out all;
 }

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CATEGORY_DATA_API } from "../../utils";
 import './CategoryPage.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpload } from "@fortawesome/free-solid-svg-icons";
 
 export type LinkItem = {
   link: string;
@@ -24,7 +26,7 @@ export type CategoryPageProps = {
 export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
   const [data, setData] = useState<CategoryData | null>(null);
   const location = useLocation();
-
+  const navigator = useNavigate();
   useEffect(() => {
     async function getData() {
       try {
@@ -59,6 +61,10 @@ export function CategoryPage({ label, categoryKey }: CategoryPageProps) {
         <h2>{label}</h2>
       </hgroup>
 
+      <button onClick={() => navigator(`/upload?opt=${categoryKey}`)} className="categoryUploadButton">
+        <FontAwesomeIcon icon={faUpload} />
+        Carica materiale per questa categoria
+      </button>
       {data ? (
         <>
           <h3>Materiale Esterno (al telegram)</h3>

@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import { getCategories, INSERT_API } from "../../../utils/";
+import { useSearchParams } from "react-router";
 interface FormData {
     desc: string;
     link: string;
     cat: string;
     sub: string | null;
 }
+
 export function useUploadPage(){
     const [formData, setFormData] = useState<FormData>({ desc: '', link: '', cat: '', sub: null });
     const [isFormValid, setIsFormValid] = useState<boolean>(false);
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
     const [courses, setCourses] = useState<{ [key: string]: string }>({});
-    
+    const [searchParams] = useSearchParams();
+    const selectOption = searchParams.get('opt') || 'gen'; 
+    const [categoryOption, setCategoryOption] = useState<string>();
+
     useEffect(() => {
             async function fetchData() {
                 const data = await getCategories();
@@ -19,6 +24,11 @@ export function useUploadPage(){
             }
             fetchData();
     }, []);
+
+    useEffect(()=> {
+        setCategoryOption(selectOption);
+    }, [selectOption]);
+
     const validateForm = () => {
         const isNameValid = formData.desc.trim() !== '';
         const isLinkValid = formData.link.trim() !== '' && formData.link.trim().startsWith("https://t.me/appuntipolito/");
@@ -87,6 +97,7 @@ export function useUploadPage(){
                 handleSubmit,
                 validateForm,
             },
+            categoryOption,
             formData,
             isFormValid,
             popupMessage,
