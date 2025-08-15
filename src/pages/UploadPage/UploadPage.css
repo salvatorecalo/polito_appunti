@@ -107,14 +107,14 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: var(--text-color);
+    background-color: var(--color-color);
     transition: border 0.2s ease-in-out;
   }
 
   select,
 ::picker(select) {
   appearance: base-select;
-  color: var(--bg-color);
+  color: var(--text-color);
 }
 
   .custom-select:focus {
