@@ -1,4 +1,4 @@
-import './Creditspage.css'
+import './CreditsPage.css'
 
 export function CreditsPage() {
     return (
