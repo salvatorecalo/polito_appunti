@@ -1,6 +1,6 @@
 import './CreditsPage.css'
 
-export function CreditsPage() {
+export default function CreditsPage() {
     return (
         <section className="creditsPage">
             Questo sito web fa uso:
