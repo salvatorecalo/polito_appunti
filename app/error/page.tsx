@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import './ErrorPage.css';
 
-export function ErrorPage() {
+export default function ErrorPage() {
     const searchParams = useSearchParams();
     const queryId = searchParams.get('id');
 
