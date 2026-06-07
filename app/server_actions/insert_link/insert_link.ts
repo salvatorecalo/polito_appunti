@@ -3,7 +3,7 @@ import LinkModel from "@/app/(utils)/db/schema/link_schema";
 import { getAppConfig } from "../get_app_config/get_app_config";
 import { InsertPayload } from "./model/insert_payload";
 import connectToDb from "../db_connect/db_connect";
-import { SubCats } from "@/app/(utils)/db/model/course_and_sub_types";
+import { SubCategoryKey } from "@/app/(utils)/db/model/course_and_sub_types";
 
 /**
  * 
@@ -42,7 +42,7 @@ export async function insertLink(payload: InsertPayload){
                 If our category is one of the option of the subcats in the getAppConfig json
             */
             if (category in config.subcats){
-                const categorySubcats = config.subcats[category as SubCats]
+                const categorySubcats = config.subcats[category as SubCategoryKey]
                 /*
                     If we cannot find the specified subcategory
                     we return status -2
