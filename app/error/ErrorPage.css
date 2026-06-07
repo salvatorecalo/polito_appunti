@@ -1,0 +1,34 @@
+.ErrorPage {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ErrorPage img {
+    max-width: 90%;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.ErrorPage p {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.ErrorPage a {
+    padding: 0.6rem 1.2rem;
+    background-color: #0077ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.ErrorPage a:hover {
+    background-color: #005fd1;
+}

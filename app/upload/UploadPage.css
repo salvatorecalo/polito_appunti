@@ -1,0 +1,209 @@
+#UploadPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3em 1.5em;
+    min-height: 80vh;
+    box-sizing: border-box;
+}
+
+.form-card {
+    max-width: 520px;
+    width: 100%;
+    background: var(--white, #ffffff);
+    padding: 2.5em;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.form-header h2 {
+    font-size: 1.85em;
+    font-weight: 800;
+    color: var(--black, #0f172a);
+    margin: 0 0 0.4em 0;
+    letter-spacing: -0.5px;
+}
+
+.form-subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+#UploadPage form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--black, #334155);
+    letter-spacing: 0.3px;
+}
+
+/* Wrapper dei campi per allineare l'icona interna */
+.input-field-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Icone interne ai campi */
+.input-field-wrapper .input-icon {
+    position: absolute;
+    left: 16px;
+    color: #94a3b8;
+    pointer-events: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    z-index: 2;
+}
+
+/* Campi di Input e Select unificati geometricamente */
+.input-field-wrapper input,
+.input-field-wrapper .custom-select {
+    width: 100%;
+    padding: 0.95em 1em 0.95em 2.8em;
+    font-size: 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: var(--black, #0f172a);
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Effetti di Focus coordinati con l'arancione del brand */
+.input-field-wrapper input:focus,
+.input-field-wrapper .custom-select:focus {
+    border-color: var(--orange, #ea580c);
+    box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.12);
+}
+
+.input-field-wrapper input:focus ~ .input-icon {
+    color: var(--orange, #ea580c);
+}
+
+/* Testi descrittivi di aiuto sotto i campi */
+.input-hint {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.3;
+    padding-left: 0.2em;
+}
+
+.validation-error-text {
+    font-size: 0.85rem;
+    color: #ef4444;
+    font-weight: 500;
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+/* Banner di Popup di successo o errore */
+.popup-banner {
+    padding: 0.9em 1.2em;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-banner.success {
+    background-color: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.popup-banner.error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* Bottone di Invio */
+.submit-btn {
+    width: 100%;
+    padding: 1em 1.5em;
+    display: flex;
+    gap: 0.8em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--blue, #3b82f6);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    transition: all 0.2s ease;
+    margin-top: 0.5em;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: var(--dark-blue, #1d4ed8);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    background-color: #cbd5e1;
+    color: #64748b;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Animazione di entrata */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsività */
+@media (max-width: 600px) {
+    .form-card {
+        padding: 1.8em 1.4em;
+    }
+
+    .form-header h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 400px) {
+    .input-field-wrapper input,
+    .input-field-wrapper .custom-select {
+        font-size: 0.9rem;
+        padding: 0.8rem 0.7rem 0.8rem 2.4rem;
+    }
+
+    .input-field-wrapper .input-icon {
+        left: 12px;
+        font-size: 0.9rem;
+    }
+}

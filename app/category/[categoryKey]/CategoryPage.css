@@ -1,0 +1,138 @@
+.category-page hgroup {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin: 0;
+    min-height: 150px;
+}
+
+.category-page h3, .category-page p {
+    text-align: center;
+    color: var(--text-color);
+}
+
+article, .category-page p {
+    text-align: center;
+}
+
+.category-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 !important;
+    gap: 1em;
+}
+
+.categoryUploadButton {
+    width: 100%;
+    height: 3.5em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--purple);
+    color: var(--white);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.categoryUploadButton:hover {
+    background-color: var(--dark-purple);
+    transition: 0.2s ease-in-out all;
+}
+
+.material-carousel article h3 {
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.4;
+    color: var(--bg-color);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.8rem; 
+}
+
+.material-carousel article {
+    flex: 0 0 280px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon-wrapper {
+    background: var(--purple);
+    padding: 0.8rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.material-carousel article:hover .card-icon-wrapper {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.material-carousel article:hover {
+    cursor: pointer;
+    transform: translateY(-6px);
+    border-color: var(--blue, #0047ab);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.material-carousel article a {
+    background: var(--blue, #0047ab);
+    color: var(--white);
+    padding: 0.5em 1.2em;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    word-break: break-word;
+    position: relative;
+}
+
+.material-carousel article a:hover {
+    background: var(--dark-blue);
+}
+
+.material-carousel p {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .material-carousel article {
+        flex-direction: column;
+        padding: 1em;
+    }
+}
+
+.material-carousel {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
