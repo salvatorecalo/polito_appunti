@@ -1,14 +1,10 @@
 import { getAppConfig } from "@/app/server_actions/get_app_config/get_app_config";
 import Image from "next/image";
 import '../../../CategoryPage.css'
+import { FormattedLink } from "@/app/server_actions/db_search/db_search_by_name";
 
 interface MaterialCardProp {
-    item: {
-        name: string,
-        id: string,
-        link: string,
-        sub: string
-    },
+    item: FormattedLink,
     text: string,
     idx: string
 }
@@ -20,13 +16,13 @@ export async function CategoryMaterialCard({item, text, idx}: MaterialCardProp) 
        if (sub in appConfig.logo) {
             return appConfig.logo[sub]
         }
-        return null
+        return "/default_icon.webp"
     }
 
     return (
         <article key={`${text}-${item.id || idx}`}>
             <div className="card-icon-wrapper">
-                <Image src={setIcon(item.sub) || "/default_icon.webp"} alt={`${item.name} icon`} width={50} height={50} />
+                <Image src={setIcon(item.sub || "") || "/default_icon.webp"} alt={`${item.name} icon`} width={50} height={50} />
             </div>
             <h3>{item.name}</h3>
             <a href={item.link} target="_blank" rel="noopener noreferrer">
