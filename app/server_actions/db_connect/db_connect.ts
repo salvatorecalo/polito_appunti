@@ -6,12 +6,6 @@ import mongoose, { Connection } from "mongoose";
 * want to change our db we can do it without touching the frontend
 */
 
-const MONGODB_URI = process.env.MONGO_URL || ""
-
-if (!MONGODB_URI) {
-    throw new Error("Cannot find MONGO_URL in .env")
-}
-
 interface MongooseGlobalCache {
     conn: Connection | null;
     promise: Promise<typeof mongoose> | null;
@@ -24,9 +18,20 @@ if (!client) {
 }
 
 async function connectToDb(): Promise<Connection> {
+
+    const MONGODB_URI = process.env.MONGO_URL || ""
+
     // If there is a connection we return it
     if (client.conn) {
         return client.conn;
+    }
+
+     if (!MONGODB_URI) {
+        if (process.env.NODE_ENV === "production" && typeof window === "undefined"){
+            console.warn("⚠️ Warning: MONGO_URL ignorato temporaneamente durante il build worker statico.");
+            return mongoose.connection; // return an empty instance to not crash
+        }
+        throw new Error("Cannot find MONGO_URL in .env");
     }
 
     /*
@@ -44,7 +49,7 @@ async function connectToDb(): Promise<Connection> {
         console.log("Connected to database successfully");
     } catch (error) {
         console.error("Error connecting db:", error);
-        client.promise = null; 
+        client.promise = null;
         throw error;
     }
     return client.conn;
