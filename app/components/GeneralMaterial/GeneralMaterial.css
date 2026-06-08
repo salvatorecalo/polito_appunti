@@ -8,6 +8,6 @@
 }
 
 .general-material h3 {
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-size: clamp(1rem, 2vw, 1.25rem);
     text-align: center;
 }
