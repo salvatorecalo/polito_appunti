@@ -68,10 +68,3 @@
 .general-material p {
     text-align: center;
 }
-
-@media (max-width: 600px) {
-    .material-card {
-        flex-direction: column;
-        padding: 1em;
-    }
-}
