@@ -123,9 +123,9 @@ export function SearchContent() {
       <h2>Risultati per: <span>"{query}"</span></h2>
 
       {isRunPolitoEasterEgg ? (
-        <div className="winner-container" style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
           <Image 
-            src="/run.png"
+            src="/run.jpeg"
             width={500} 
             height={500} 
             alt="Foto di run che vince le elezioni" 
