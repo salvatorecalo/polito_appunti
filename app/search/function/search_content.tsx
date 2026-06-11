@@ -17,6 +17,9 @@ export function SearchContent() {
   const [networkError, setNetworkError] = useState<boolean>(false)
   const navigate = useRouter()
 
+  useEffect(() => {
+    setLocalSearchText(query);
+  }, [query]);
 
   useEffect(() => {
     if (!query) return
@@ -103,17 +106,9 @@ export function SearchContent() {
       </section>
     );
   }
-  console.log(externalResults)
-  if (externalResults[0].name == "Run polito"){
-    return (
-      <Image 
-        src="run.png"
-        width="500" 
-        height="500" 
-        alt="Foto di run che vince le elezioni" 
-      />
-    )
-  }
+  
+  const isRunPolitoEasterEgg = externalResults[0]?.name === "Run polito";
+
   return (
     <section className="SearchResults">
       <div className="search-panel">
@@ -124,9 +119,25 @@ export function SearchContent() {
           onSubmit={handleFormSubmit}
         />
       </div>
+      
       <h2>Risultati per: <span>"{query}"</span></h2>
-      <MaterialCarousel materialType={internalResults} text="interno" />
-      <MaterialCarousel materialType={externalResults} text="esterno" />
+
+      {isRunPolitoEasterEgg ? (
+        <div className="winner-container" style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+          <Image 
+            src="/run.png"
+            width={500} 
+            height={500} 
+            alt="Foto di run che vince le elezioni" 
+            priority
+          />
+        </div>
+      ) : (
+        <>
+          <MaterialCarousel materialType={internalResults} text="interno" />
+          <MaterialCarousel materialType={externalResults} text="esterno" />
+        </>
+      )}
     </section>
   );
 }
