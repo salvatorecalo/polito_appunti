@@ -122,21 +122,27 @@ export function SearchContent() {
       
       <h2>Risultati per: <span>"{query}"</span></h2>
 
-      {isRunPolitoEasterEgg ? (
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
-          <Image 
-            src="/run.jpeg"
-            width={500} 
-            height={500} 
-            alt="Foto di run che vince le elezioni" 
-            priority
-          />
+      {isLoading ? (
+        <div className="loading-container" style={{ textAlign: 'center', padding: '3rem' }}>
+          <p>Caricamento in corso...</p> 
         </div>
       ) : (
-        <>
-          <MaterialCarousel materialType={internalResults} text="interno" />
-          <MaterialCarousel materialType={externalResults} text="esterno" />
-        </>
+        isRunPolitoEasterEgg ? (
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+            <Image 
+              src="/run.jpeg"
+              width={500} 
+              height={500} 
+              alt="Foto di run che vince le elezioni" 
+              priority
+            />
+          </div>
+        ) : (
+          <>
+            <MaterialCarousel materialType={internalResults} text="interno" />
+            <MaterialCarousel materialType={externalResults} text="esterno" />
+          </>
+        )
       )}
     </section>
   );
