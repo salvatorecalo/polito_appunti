@@ -26,6 +26,24 @@ export interface FormattedLink {
  */
 export async function dbSearchByName({name}: DbSearchByNameProps){
     const sanitizedQuery = name.trim()
+
+    if (name === "run polito") {
+        const int: FormattedLink[] = []
+        const ext: FormattedLink[] = [
+            {
+                "id": "run_easter_egg",
+                name: "Run polito",
+                link: "https://www.runpolito.it",
+                category: "run",
+                sub: "run"
+            }
+        ]
+        return {
+            status: 0,
+            int,
+            ext // ext
+        }
+    }
     if (!name || sanitizedQuery === "") {
         return {
             "status": -1,

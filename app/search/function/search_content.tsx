@@ -3,23 +3,20 @@ import { SearchInput } from '@/app/components/SearchPanel/components/search_inpu
 import { ChangeEvent, useEffect, useState } from 'react'
 import { dbSearchByName, FormattedLink } from '@/app/server_actions/db_search/db_search_by_name'
 import { MaterialCarousel } from '../../components/GeneralMaterial/components/material_carousel/material_carousel'
-
+import Image from "next/image"
 
 export function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q") || "";
-  const error = searchParams.get("error");
-  const [localSearchText, setLocalSearchText] = useState<string>(query);
+
   const [internalResults, setInternalResults] = useState<FormattedLink[]>([])
   const [externalResults, setExternalResults] = useState<FormattedLink[]>([])
+  const error = searchParams.get("error");
+  const [localSearchText, setLocalSearchText] = useState<string>(query);
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [networkError, setNetworkError] = useState<boolean>(false)
   const navigate = useRouter()
 
-  // Sincronizza lo stato locale se la query nell'URL cambia (es. navigando avanti/indietro)
-  useEffect(() => {
-    setLocalSearchText(query);
-  }, [query]);
 
   useEffect(() => {
     if (!query) return
@@ -105,7 +102,17 @@ export function SearchContent() {
       </section>
     );
   }
-
+  console.log(externalResults)
+  if (externalResults[0].name == "Run polito"){
+    return (
+      <Image 
+        src="run.png"
+        width="500" 
+        height="500" 
+        alt="Foto di run che vince le elezioni" 
+      />
+    )
+  }
   return (
     <section className="SearchResults">
       <div className="search-panel">
