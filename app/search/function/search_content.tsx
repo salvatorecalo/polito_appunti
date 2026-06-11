@@ -107,7 +107,7 @@ export function SearchContent() {
     );
   }
   
-  const isRunPolitoEasterEgg = externalResults[0]?.name === "Run polito";
+  const isRunPolitoEasterEgg = externalResults[0]?.name .toLowerCase() === "run polito";
 
   return (
     <section className="SearchResults">
