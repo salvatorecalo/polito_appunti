@@ -21,6 +21,7 @@
   --black: #1d1d1d;
   --dark-red: #c41d1d;
   --text-color: #1D1D1D;
+  --card-text-color: #1D1D1D; 
   --bg-color: #f5f2f2;
 }
 
@@ -38,6 +39,7 @@
     --black: #1d1d1d;
     --dark-red: #a91818;
     --text-color: #f5f2f2;
+    --card-text-color: #1D1D1D; 
     --bg-color: #1D1D1D;
   }
 }
