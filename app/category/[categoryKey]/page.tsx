@@ -16,7 +16,6 @@ export default async function CategoryPage({ params }: PageProps) {
   const label = appConfig.categories[categoryKey] || "Categoria Sconosciuta";
   const bgColor = appConfig.backgrounds[categoryKey] || "#ED6D33";
   const data = await dbSearchByCategory({ category: categoryKey });
-    console.log(data.int)
 
   return (
     <section className="category-page">

@@ -28,8 +28,6 @@ export async function insertLink(payload: InsertPayload){
           If we cannot find the specified category or it's not in the general
           we return status -1
         */
-       console.log(category)
-       console.log(config.categories)
         if (!(category in config.categories) && category !== "gen") {
             return {status: -1} 
         }

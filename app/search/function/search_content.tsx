@@ -29,7 +29,6 @@ export function SearchContent() {
       setNetworkError(false)
       try {
         const result = await dbSearchByName({ name: query })
-        console.log(result)
         if (result.status === 0 && result.int && result.ext && (result.int.length > 0 || result.ext.length > 0)) {
           setInternalResults(result.int);
           setExternalResults(result.ext);

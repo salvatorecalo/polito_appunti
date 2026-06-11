@@ -27,7 +27,7 @@ export interface FormattedLink {
 export async function dbSearchByName({name}: DbSearchByNameProps){
     const sanitizedQuery = name.trim()
 
-    if (name === "run polito") {
+    if (name.toLocaleLowerCase() === "run polito") {
         const int: FormattedLink[] = []
         const ext: FormattedLink[] = [
             {
@@ -61,7 +61,6 @@ export async function dbSearchByName({name}: DbSearchByNameProps){
         const ext: FormattedLink[] = []
 
         matchedLinks.map((item: any) => {
-            console.log(item)
             const formattedLink: FormattedLink = {
                 id: item._id.toString(),
                 name: item.name,
