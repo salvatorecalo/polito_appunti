@@ -1,3 +1,4 @@
+"use client"
 import { useTranslation } from '../(utils)/context/language_context/language_context';
 import './CreditsPage.css'
 
