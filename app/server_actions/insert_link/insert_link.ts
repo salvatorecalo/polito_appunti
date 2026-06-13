@@ -28,7 +28,7 @@ export async function insertLink(payload: InsertPayload){
           If we cannot find the specified category or it's not in the general
           we return status -1
         */
-        if (!(category in config.categories) && category !== "gen") {
+        if (!(category in config.categories_it) && category !== "gen") {
             return {status: -1} 
         }
 
@@ -39,8 +39,9 @@ export async function insertLink(payload: InsertPayload){
             /*
                 If our category is one of the option of the subcats in the getAppConfig json
             */
-            if (category in config.subcats){
-                const categorySubcats = config.subcats[category as SubCategoryKey]
+            
+            if (category in config.subcats_it){
+                const categorySubcats = config.subcats_it[category as SubCategoryKey]
                 /*
                     If we cannot find the specified subcategory
                     we return status -2

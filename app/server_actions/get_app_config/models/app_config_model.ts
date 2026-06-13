@@ -4,7 +4,7 @@ export interface AppConfig {
     categories_it: Record<CategoryKey, string>;
     subcats_it: Record<SubCategoryKey, Record<string, string>>;
     categories_en: Record<CategoryKey, string>;
-    subcats__en: Record<SubCategoryKey, Record<string, string>>;
+    subcats_en: Record<SubCategoryKey, Record<string, string>>;
     logo: Record<string, string>;
     backgrounds: Record<string, string>;
     color_h1: Record<string, string>;
