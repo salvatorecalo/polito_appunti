@@ -5,12 +5,12 @@ import '../UploadPage.css';
 import { useUploadPage } from "../hook/useUploadPage";
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
 
-export default function UploadPage({courses}: {courses: Record<string, string>}) {
+export default function UploadPage({courses_it, courses_en}: {courses_it: Record<string, string>, courses_en: Record<string, string>}) {
     const {
         actions, popupMessage, formData, isFormValid
     } = useUploadPage();
 
-    const { t: translator } = useTranslation()
+    const { t: translator, lang } = useTranslation()
 
     return (
         <section id="UploadPage">
@@ -75,7 +75,7 @@ export default function UploadPage({courses}: {courses: Record<string, string>})
                             >
                                 <option value="">{translator.uploadPage.selectACategory}</option>
                                 <option value="gen">{translator.uploadPage.genericMaterial}</option>
-                                {Object.entries(courses).map(([key, value]) => (
+                                {Object.entries(lang === "it" ? courses_it : courses_en).map(([key, value]) => (
                                     <option key={key} value={key}>
                                         {value}
                                     </option>
