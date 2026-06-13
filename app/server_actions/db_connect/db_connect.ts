@@ -28,7 +28,7 @@ async function connectToDb(): Promise<Connection> {
 
      if (!MONGODB_URI) {
         if (process.env.NODE_ENV === "production" && typeof window === "undefined"){
-            console.warn("⚠️ Warning: MONGO_URL ignorato temporaneamente durante il build worker statico.");
+            console.warn("⚠️ Warning: MONGO_URL ignored temporanearly during static worker builder.");
             return mongoose.connection; // return an empty instance to not crash
         }
         throw new Error("Cannot find MONGO_URL in .env");

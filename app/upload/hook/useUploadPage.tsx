@@ -1,9 +1,10 @@
 "use client"
+import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
 import { SubCategoryKey } from "@/app/(utils)/db/model/course_and_sub_types";
 import { insertLink } from "@/app/server_actions/insert_link/insert_link";
 import { InsertPayload } from "@/app/server_actions/insert_link/model/insert_payload";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 export function useUploadPage(){
@@ -11,6 +12,7 @@ export function useUploadPage(){
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
     const searchParams = useSearchParams()
     const optParam = searchParams.get("opt")
+    const {t: translator} = useTranslation()
 
     const [formData, setFormData] = useState<InsertPayload>({ 
         name: '', 
@@ -66,29 +68,29 @@ export function useUploadPage(){
 
             switch (response.status) {
                 case 0:
-                    setPopupMessage("✅ Caricamento riuscito!");
-                    setFormData({ name: '', link: '', category: optParam || '', sub: null }); // Reset
-                    setIsFormValid(false);
+                    setPopupMessage("✅ Caricamento riuscito!")
+                    setFormData({ name: '', link: '', category: optParam || '', sub: null }) // Reset
+                    setIsFormValid(false)
                     break;
                 case -1:
-                    setPopupMessage("❌ Categoria selezionata non valida.");
+                    setPopupMessage(translator.uploadPage.categoryNotValid)
                     break;
                 case -2:
-                    setPopupMessage("❌ Sottocategoria/Esame non valido per questo corso.");
+                    setPopupMessage(translator.uploadPage.subcategoryNotValid)
                     break;
                 case -3:
-                    setPopupMessage("❌ Questa categoria non prevede sottocategorie.");
+                    setPopupMessage(translator.uploadPage.categoryDoesNotHaveSubcategory);
                     break;
                 case -4:
-                    setPopupMessage("❌ Link non consentito o non formattato come richiesto.");
+                    setPopupMessage(translator.uploadPage.linkBadFormatted);
                     break;
                 default:
-                    setPopupMessage("❌ Errore del database durante il salvataggio.");
+                    setPopupMessage(translator.uploadPage.dbError);
             }
     
             } catch (error) {
                 console.error(error);
-                setPopupMessage("❌ Errore di rete o del server.");
+                setPopupMessage(translator.general.networkError);
             }
         };
 

@@ -3,18 +3,21 @@ import { faBook, faLink, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../UploadPage.css';
 import { useUploadPage } from "../hook/useUploadPage";
+import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
 
 export default function UploadPage({courses}: {courses: Record<string, string>}) {
     const {
         actions, popupMessage, formData, isFormValid
     } = useUploadPage();
 
+    const { t: translator } = useTranslation()
+
     return (
         <section id="UploadPage">
             <div className="form-card">
                 <div className="form-header">
-                    <h2>Carica Materiale</h2>
-                    <p className="form-subtitle">Contribuisci alla community aggiungendo i tuoi appunti</p>
+                    <h2>{translator.uploadPage.uploadMaterial}</h2>
+                    <p className="form-subtitle">{translator.uploadPage.helpCommunity}</p>
                 </div>
 
                 <form onSubmit={actions.handleSubmit}>
@@ -25,7 +28,7 @@ export default function UploadPage({courses}: {courses: Record<string, string>})
                     )}
 
                     <div className="input-group">
-                        <label htmlFor="name">Nome del contenuto</label>
+                        <label htmlFor="name">{translator.uploadPage.materialName}</label>
                         <div className="input-field-wrapper">
                             <input
                                 type="text"
@@ -41,7 +44,7 @@ export default function UploadPage({courses}: {courses: Record<string, string>})
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="url">Link al messaggio Telegram</label>
+                        <label htmlFor="url">{translator.uploadPage.telegramLinkMessage}</label>
                         <div className="input-field-wrapper">
                             <input
                                 type="text"
@@ -55,12 +58,12 @@ export default function UploadPage({courses}: {courses: Record<string, string>})
                             <FontAwesomeIcon icon={faLink} className="input-icon" />
                         </div>
                         <span className="input-hint">
-                            Deve iniziare tassativamente con: https://t.me/appuntipolito
+                           {translator.uploadPage.requirementsStartWith}
                         </span>
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="category">Categoria Corso</label>
+                        <label htmlFor="category">{translator.uploadPage.categoryCouse}</label>
                         <div className="input-field-wrapper">
                             <select
                                 id="category"
@@ -70,8 +73,8 @@ export default function UploadPage({courses}: {courses: Record<string, string>})
                                 onBlur={actions.handleBlur}
                                 className="custom-select"
                             >
-                                <option value="">Seleziona una categoria</option>
-                                <option value="gen">MATERIALE GENERICO</option>
+                                <option value="">{translator.uploadPage.selectACategory}</option>
+                                <option value="gen">{translator.uploadPage.genericMaterial}</option>
                                 {Object.entries(courses).map(([key, value]) => (
                                     <option key={key} value={key}>
                                         {value}
@@ -84,12 +87,12 @@ export default function UploadPage({courses}: {courses: Record<string, string>})
 
                     {!isFormValid && formData.link && (
                         <p className="validation-error-text">
-                            ⚠️ Compila tutti i campi correttamente per sbloccare l'invio.
+                            {translator.uploadPage.completeAllFields}
                         </p>
                     )}
 
                     <button type="submit" className="submit-btn" disabled={!isFormValid}>
-                        <span>Aggiungi materiale</span>
+                        <span>{translator.uploadPage.addMaterial}</span>
                         <FontAwesomeIcon icon={faPlus} />
                     </button>
                 </form>

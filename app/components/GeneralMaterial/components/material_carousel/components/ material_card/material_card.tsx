@@ -2,6 +2,7 @@
 import Image from "next/image";
 import './material_card.css'
 import { FormattedLink } from "@/app/server_actions/db_search/db_search_by_name";
+import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
 
 interface MaterialCardProp {
     item: FormattedLink
@@ -10,7 +11,7 @@ interface MaterialCardProp {
 }
 
 export function MaterialCard({item, text, idx}: MaterialCardProp) {
-    
+    const {t:translator} = useTranslation()
     function getLocationPath(){
         if (item.sub) {
             return `/img/${item.sub}.webp`;
@@ -27,7 +28,7 @@ export function MaterialCard({item, text, idx}: MaterialCardProp) {
             </div>
             <h3>{item.name}</h3>
             <a href={item.link} target="_blank" rel="noopener noreferrer">
-                Vai al messaggio
+                {translator.general.goToMessage}
             </a>
         </article>
     )

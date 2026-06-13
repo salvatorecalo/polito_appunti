@@ -1,17 +1,20 @@
+import { useTranslation } from '../(utils)/context/language_context/language_context';
 import './CreditsPage.css'
 
 export default function CreditsPage() {
+    const {t:translator} = useTranslation()
+
     return (
         <section className="creditsPage">
-            Questo sito web fa uso:
+            {translator.credits.websiteUse}
             <ul>
                 <li>
-                   <p>Delle icone di <a href="https://fontawesome.com">Font Awesome</a></p>
+                   <p>{translator.credits.iconsBy(<a href="https://fontawesome.com">Font Awesome</a>)}</p>
                 </li>
                 <li>
-                   <p>Delle illustrazioni di <a href="https://storyset.com">Story Set</a></p>
+                   <p>{translator.credits.illustrationBy(<a href="https://fontawesome.com">Font Awesome</a>)}</p>
                 </li>
             </ul>
         </section>
-    );
+    )
 }

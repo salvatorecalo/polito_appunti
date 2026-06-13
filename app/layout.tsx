@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 config.autoAddCss = false;
+import { LanguageProvider } from "@/app/(utils)/context/language_context/language_context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,13 +31,15 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <main className="app">
-        <section>
-          <Navbar />
-          {children}
-        </section>
-        <Footer />
-      </main>
+        <LanguageProvider>
+          <main className="app">
+            <section>
+              <Navbar />
+              {children}
+            </section>
+            <Footer />
+          </main>
+        </LanguageProvider>
       </body>
     </html>
   );

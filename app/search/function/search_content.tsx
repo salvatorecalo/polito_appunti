@@ -4,6 +4,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { dbSearchByName, FormattedLink } from '@/app/server_actions/db_search/db_search_by_name'
 import { MaterialCarousel } from '../../components/GeneralMaterial/components/material_carousel/material_carousel'
 import Image from "next/image"
+import { useTranslation } from "@/app/(utils)/context/language_context/language_context"
 
 export function SearchContent() {
   const searchParams = useSearchParams();
@@ -16,6 +17,7 @@ export function SearchContent() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [networkError, setNetworkError] = useState<boolean>(false)
   const navigate = useRouter()
+  const {t:translator} = useTranslation()
 
   useEffect(() => {
     setLocalSearchText(query);
@@ -83,8 +85,8 @@ export function SearchContent() {
           />
         </div>
         <div className="search-error-container">
-          <h2>Nessun risultato trovato per: "{query}"</h2>
-          <p>Prova a cercare qualcos' altro o verifica la presenza di errori di battitura.</p>
+          <h2>{translator.search.noResults(query)}</h2>
+          <p>{translator.search.searchOther}</p>
         </div>
       </section>
     )
@@ -101,7 +103,7 @@ export function SearchContent() {
             onSubmit={handleFormSubmit}
           />
         </div>
-        <p className="validation-error-text">❌ Errore di rete. Impossibile contattare il database.</p>
+        <p className="validation-error-text">{translator.general.networkError}</p>
       </section>
     );
   }
@@ -119,11 +121,11 @@ export function SearchContent() {
         />
       </div>
       
-      <h2>Risultati per: <span>"{query}"</span></h2>
+      <h2>{translator.search.results(query)}</h2>
 
       {isLoading ? (
         <div className="loading-container" style={{ textAlign: 'center', padding: '3rem' }}>
-          <p>Caricamento in corso...</p> 
+          <p>{translator.search.loadingText}.</p> 
         </div>
       ) : (
         isRunPolitoEasterEgg ? (

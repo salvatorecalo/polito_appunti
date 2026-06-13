@@ -8,7 +8,7 @@ import { AppConfig } from "./models/app_config_model"
 export async function getAppConfig(): Promise<AppConfig> {
 
     return {
-        "categories": {
+        "categories_it": {
             "dummy": "TESTING ONLY",
             "ing": "TEST D'INGRESSO",
             "1st": "1 ANNO TRIENNALE",
@@ -28,7 +28,7 @@ export async function getAppConfig(): Promise<AppConfig> {
             "gesmag": "MAGISTRALE GESTIONALE",
             "nfimag": "MAGISTRALE NANOTECHNOLOGIES FOR ICTS"
         },
-        "subcats": {
+        "subcats_it": {
             "dummy": {
                 "d1": "DUMMY SUB1",
                 "d2": "DUMMY SUB2"
@@ -48,6 +48,48 @@ export async function getAppConfig(): Promise<AppConfig> {
             "lib": {
                 "nano": "Introduzione alle nanotecnologie",
                 "tecambsitprod": "Tecnologie Ambientali dei Siti produttivi"
+            }
+        },
+        "categories_en": {
+            "dummy": "TESTING ONLY",
+            "ing": "ADMISSION TEST",
+            "1st": "1ST YEAR BACHELOR'S",
+            "2nd": "2ND YEAR BACHELOR'S (COMMON)",
+            "lib": "BACHELOR'S FREE CREDITS",
+            "aer": "BACHELOR'S AEROSPACE",
+            "bio": "BACHELOR'S BIOMEDICAL",
+            "cin": "BACHELOR'S CINEMA",
+            "elt": "BACHELOR'S ELECTRONICS",
+            "fis": "BACHELOR'S PHYSICS",
+            "ges": "BACHELOR'S MANAGEMENT",
+            "inf": "BACHELOR'S COMPUTER ENGINEERING",
+            "mat": "BACHELOR'S MATHEMATICS",
+            "biomag": "MASTER'S BIOMEDICAL",
+            "eltmag": "MASTER'S ELECTRONICS",
+            "enrmag": "MASTER'S ENERGY",
+            "gesmag": "MASTER'S MANAGEMENT",
+            "nfimag": "MASTER'S NANOTECHNOLOGIES FOR ICTS"
+        },
+        "subcats_en": {
+            "dummy": {
+                "d1": "DUMMY SUB1",
+                "d2": "DUMMY SUB2"
+            },
+            "1st": {
+                "alg": "LINEAR ALGEBRA",
+                "an1": "CALCULUS 1",
+                "chim": "CHEMISTRY",
+                "fis": "PHYSICS 1",
+                "ielts": "IELTS",
+                "inf": "COMPUTER SCIENCE"
+            },
+            "bio": {
+                "bes": "Biomedical Instrumentation and Safety",
+                "stm": "Materials Science and Technology"
+            },
+            "lib": {
+                "nano": "Introduction to Nanotechnology",
+                "tecambsitprod": "Environmental Technologies for Production Sites"
             }
         },
         "logo": {

@@ -1,29 +1,11 @@
-import Link from 'next/link';
 import './CategoryList.css'
 import { getAppConfig } from '@/app/server_actions/get_app_config/get_app_config';
+import { CategoryListClient } from './components/category_list_client/category_list_client';
 
 export async function CategoryList() {
-    const { categories, backgrounds } = await getAppConfig()
+    const { categories_it, categories_en, backgrounds } = await getAppConfig()
 
     return (
-        <section className="categories-list">
-            {
-                Object.entries(categories).map(([key, label]) =>
-                    key !== "dummy" ? (
-                        <Link
-                            key={key}
-                            href={`/category/${key}`}
-                            className="category-link"
-                            style={{
-                                '--category-bg': backgrounds[key],
-                                '--category-hover-bg': backgrounds[`${key}-dark`],
-                            } as React.CSSProperties}
-                        >
-                            {label}
-                        </Link>
-                    ) : null
-                )
-            }
-        </section>
+       <CategoryListClient categories_it={categories_it} categories_en={categories_en} backgrounds={backgrounds} />
     );
 }

@@ -3,9 +3,13 @@ import { useState } from 'react';
 import './Navbar.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChangeLanguageButton } from '../change_language_button/change_language_button';
+import { useTranslation } from '@/app/(utils)/context/language_context/language_context';
 
 export function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+    const {t: translator} = useTranslation()
+
 
     return (
         <nav className={`navbar ${isOpen ? 'open' : ''}`}>
@@ -24,7 +28,7 @@ export function Navbar() {
             <ul className="nav-links">
                 <li>
                     <Link href="/upload" onClick={() => setIsOpen(!isOpen)}>
-                        Carica appunti
+                        {translator.navbar.addNotes}
                     </Link>
                 </li>
                 <li>
@@ -34,13 +38,16 @@ export function Navbar() {
                 </li>
                 <li>
                     <Link href="https://t.me/KeyboardCommand" target='_blank' onClick={() => setIsOpen(!isOpen)}>
-                        Segnala un problema
+                        {translator.navbar.reportProblem}
                     </Link>
                 </li>
                 <li>
                     <Link href="https://t.me/appuntipolito" target='_blank' onClick={() => setIsOpen(!isOpen)}>
-                        Collabora con noi
+                        {translator.navbar.workWithUs}
                     </Link>
+                </li>
+                <li>
+                    <ChangeLanguageButton />
                 </li>
             </ul>
         </nav>

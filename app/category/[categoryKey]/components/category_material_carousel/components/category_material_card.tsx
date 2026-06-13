@@ -2,6 +2,7 @@ import { getAppConfig } from "@/app/server_actions/get_app_config/get_app_config
 import Image from "next/image";
 import '../../../CategoryPage.css'
 import { FormattedLink } from "@/app/server_actions/db_search/db_search_by_name";
+import { GoToMessageButton } from "./components/go_to_message_button/go_to_message_button";
 
 interface MaterialCardProp {
     item: FormattedLink,
@@ -25,9 +26,7 @@ export async function CategoryMaterialCard({item, text, idx}: MaterialCardProp) 
                 <Image src={setIcon(item.sub || "") || "/default_icon.webp"} alt={`${item.name} icon`} width={50} height={50} />
             </div>
             <h3>{item.name}</h3>
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-                Vai al messaggio
-            </a>
+            <GoToMessageButton item={item} />
         </article>
     )
 }
