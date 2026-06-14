@@ -40,7 +40,8 @@ export async function dbSearchByCategory({category}: DbSearchByCategoryProp){
                 name: item.name,
                 link: item.link,
                 category: item.category,
-                sub: item.sub
+                sub: item.sub,
+                lang: item.lang
             };
 
             if (item.is_ext) {

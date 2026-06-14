@@ -26,6 +26,7 @@ export async function CategoryMaterialCard({item, text, idx}: MaterialCardProp) 
                 <Image src={setIcon(item.sub || "") || "/default_icon.webp"} alt={`${item.name} icon`} width={50} height={50} />
             </div>
             <h3>{item.name}</h3>
+            <Image src={item.lang === "it" ? "/it_flag.svg" : "/en_flag.png"} width={20} height={20} alt="language flag" />
             <GoToMessageButton item={item} />
         </article>
     )

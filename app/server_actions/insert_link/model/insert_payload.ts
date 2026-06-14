@@ -4,5 +4,6 @@ export interface InsertPayload {
     name: string,
     link: string,
     category: CategoryKey,
-    sub: SubCategoryKey | null
+    sub: SubCategoryKey | null,
+    lang: string
 }

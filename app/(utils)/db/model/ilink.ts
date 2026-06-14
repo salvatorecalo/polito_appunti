@@ -9,4 +9,5 @@ export interface ILink extends Document {
     sub: string | null;       
     is_ext: boolean | string;
     created_at?: Date;
+    lang: string;
 }

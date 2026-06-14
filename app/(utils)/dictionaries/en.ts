@@ -45,6 +45,7 @@ export const en = {
         categoryDoesNotHaveSubcategory: "This category does not have subcategories",
         linkBadFormatted: "Link not allowed or not formatted as required",
         dbError: "Database error while saving",
+        lang: "Lang"
     },
     credits: {
         websiteUse: "This website uses:",

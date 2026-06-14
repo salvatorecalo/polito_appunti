@@ -57,7 +57,6 @@
     letter-spacing: 0.3px;
 }
 
-/* Wrapper dei campi per allineare l'icona interna */
 .input-field-wrapper {
     position: relative;
     width: 100%;
@@ -65,7 +64,6 @@
     align-items: center;
 }
 
-/* Icone interne ai campi */
 .input-field-wrapper .input-icon {
     position: absolute;
     left: 16px;
@@ -76,7 +74,6 @@
     z-index: 2;
 }
 
-/* Campi di Input e Select unificati geometricamente */
 .input-field-wrapper input,
 .input-field-wrapper .custom-select {
     width: 100%;
@@ -91,7 +88,6 @@
     transition: all 0.2s ease-in-out;
 }
 
-/* Effetti di Focus coordinati con l'arancione del brand */
 .input-field-wrapper input:focus,
 .input-field-wrapper .custom-select:focus {
     border-color: var(--orange, #ea580c);
@@ -102,7 +98,6 @@
     color: var(--orange, #ea580c);
 }
 
-/* Testi descrittivi di aiuto sotto i campi */
 .input-hint {
     font-size: 0.8rem;
     color: #64748b;
@@ -118,7 +113,6 @@
     margin: 0.5em 0;
 }
 
-/* Banner di Popup di successo o errore */
 .popup-banner {
     padding: 0.9em 1.2em;
     border-radius: 8px;
@@ -140,7 +134,6 @@
     border: 1px solid #fecaca;
 }
 
-/* Bottone di Invio */
 .submit-btn {
     width: 100%;
     padding: 1em 1.5em;
@@ -178,13 +171,11 @@
     cursor: not-allowed;
 }
 
-/* Animazione di entrata */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsività */
 @media (max-width: 600px) {
     .form-card {
         padding: 1.8em 1.4em;

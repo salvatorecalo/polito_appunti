@@ -29,6 +29,11 @@ const LinkSchema: Schema = new Schema({
     created_at: {
         type: Date,
         default: Date.now
+    },
+    lang: {
+        type: String,
+        required: true,
+        default: "it"
     }
 })
 
