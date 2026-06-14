@@ -1,5 +1,5 @@
 "use client"
-import { faBook, faLink, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faFlag, faLink, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../UploadPage.css';
 import { useUploadPage } from "../hook/useUploadPage";
@@ -82,6 +82,24 @@ export default function UploadPage({courses_it, courses_en}: {courses_it: Record
                                 ))}
                             </select>
                             <FontAwesomeIcon icon={faBook} className="input-icon" />
+                        </div>
+                    </div>
+
+                    <div className="input-group">
+                        <label htmlFor="category">{translator.uploadPage.lang}</label>
+                        <div className="input-field-wrapper">
+                            <select
+                                id="lang"
+                                name="lang"
+                                value={formData.lang}
+                                onChange={actions.handleChange}
+                                onBlur={actions.handleBlur}
+                                className="custom-select"
+                            >
+                                <option value="it">IT</option>
+                                <option value="en">EN</option>
+                            </select>
+                            <FontAwesomeIcon icon={faFlag} className="input-icon" />
                         </div>
                     </div>
 

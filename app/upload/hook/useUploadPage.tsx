@@ -18,7 +18,8 @@ export function useUploadPage(){
         name: '', 
         link: '', 
         category: optParam || '',
-        sub: null 
+        sub: null,
+        lang: ''
     });
 
     const validateForm = (currentData: InsertPayload) => {
@@ -30,7 +31,6 @@ export function useUploadPage(){
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        
         setFormData(prevState => {
             // Se cambia la categoria principale, resettiamo la vecchia sottocategoria a null
             const updatedSub = name === "category" ? null : (name === "sub" ? (value === "" ? null : value) : prevState.sub);
@@ -61,7 +61,8 @@ export function useUploadPage(){
                 name: formData.name.trim(),
                 link: formData.link.trim(),
                 category: formData.category,
-                sub: formData.sub ? formData.sub : null
+                sub: formData.sub ? formData.sub : null,
+                lang: formData.lang
             };
 
             const response = await insertLink(cleanPayload);
@@ -69,7 +70,7 @@ export function useUploadPage(){
             switch (response.status) {
                 case 0:
                     setPopupMessage("✅ Caricamento riuscito!")
-                    setFormData({ name: '', link: '', category: optParam || '', sub: null }) // Reset
+                    setFormData({ name: '', link: '', category: optParam || '', sub: null, lang: ''}) // Reset
                     setIsFormValid(false)
                     break;
                 case -1:

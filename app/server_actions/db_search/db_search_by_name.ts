@@ -14,6 +14,7 @@ export interface FormattedLink {
     link: string;
     category: string;
     sub: string | null;
+    lang: string
 }
 
 /**
@@ -35,7 +36,8 @@ export async function dbSearchByName({name}: DbSearchByNameProps){
                 name: "Run polito",
                 link: "https://www.runpolito.it",
                 category: "run",
-                sub: "run"
+                sub: "run",
+                lang: "en"
             }
         ]
         return {
@@ -66,7 +68,8 @@ export async function dbSearchByName({name}: DbSearchByNameProps){
                 name: item.name,
                 link: item.link,
                 category: item.category,
-                sub: item.sub
+                sub: item.sub,
+                lang: item.lang
             };
 
             if (item.is_ext) {

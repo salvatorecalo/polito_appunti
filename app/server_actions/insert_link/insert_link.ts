@@ -22,7 +22,7 @@ export async function insertLink(payload: InsertPayload){
     try {
         await connectToDb()
         const config = await getAppConfig()
-        const { name, link, category, sub } = payload
+        const { name, link, category, sub, lang } = payload
 
         /*
           If we cannot find the specified category or it's not in the general
@@ -71,7 +71,8 @@ export async function insertLink(payload: InsertPayload){
             sub,
             name, 
             link, 
-            is_ext: false
+            is_ext: false,
+            lang
         })
         await newLink.save()
 

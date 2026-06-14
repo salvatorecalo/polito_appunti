@@ -27,6 +27,7 @@ export function MaterialCard({item, text, idx}: MaterialCardProp) {
                 <Image src={getLocationPath() || "/default_icon.webp"} alt={`${item.name} icon`} width={50} height={50} />
             </div>
             <h3>{item.name}</h3>
+            <Image src={item.lang === "it" ? "/it_flag.svg" : "/en_flag.png"} width={20} height={20} alt="language flag" />
             <a href={item.link} target="_blank" rel="noopener noreferrer">
                 {translator.general.goToMessage}
             </a>
