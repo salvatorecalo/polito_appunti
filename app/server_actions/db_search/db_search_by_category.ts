@@ -4,7 +4,8 @@ import { FormattedLink } from "./db_search_by_name"
 
 
 interface DbSearchByCategoryProp {
-    category: string
+    category: string,
+    lang: string
 }
 
 /**
@@ -15,7 +16,7 @@ interface DbSearchByCategoryProp {
  * -1 in case of missing category parameter
  * -4 in case of general error
  */
-export async function dbSearchByCategory({category}: DbSearchByCategoryProp){
+export async function dbSearchByCategory({category, lang="it"}: DbSearchByCategoryProp){
     const sanitizedCategory = category.trim()
 
     if (!category || sanitizedCategory === "") {
@@ -28,7 +29,8 @@ export async function dbSearchByCategory({category}: DbSearchByCategoryProp){
     try {
         await connectToDb()
         const matchedLinks = await LinkModel.find({
-            category: sanitizedCategory
+            category: sanitizedCategory,
+            lang: lang
         }).lean()
 
         const int: FormattedLink[] = []

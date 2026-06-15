@@ -49,8 +49,8 @@ export const it = {
     },
     credits: {
         websiteUse: "Questo sito web fa uso:",
-        iconsBy: (link: ReactNode) => ["Delle icone di", link],
-        illustrationBy: (link: ReactNode) => ["Delle illustrazioni", link]
+        iconsBy: (link: ReactNode) => `"Delle icone di ${link}`,
+        illustrationBy: (link: ReactNode) => `Delle illustrazioni ${link}`
     },
     openSourceProject: {
         mainHeading: "📚 Polito Appunti è un progetto open source",

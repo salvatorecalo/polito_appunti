@@ -1,4 +1,8 @@
-.SearchResults h3, .SearchResults h2 {
+.SearchResults h3 {
+    color: var(--card-text-color);
+}
+
+.SearchResults h2 {
     color: var(--text-color);
 }
 

@@ -12,7 +12,7 @@ interface CategoryListClientProp {
 
 export function CategoryListClient({categories_it, categories_en, backgrounds}: CategoryListClientProp){
     const {lang} = useTranslation()
-
+    
     return (
         <section className="categories-list">
             {
@@ -20,7 +20,7 @@ export function CategoryListClient({categories_it, categories_en, backgrounds}: 
                     key !== "dummy" ? (
                         <Link
                             key={key}
-                            href={`/category/${key}`}
+                            href={`/category/${key}?lang=${lang}`}
                             className="category-link"
                             style={{
                                 '--category-bg': backgrounds[key],

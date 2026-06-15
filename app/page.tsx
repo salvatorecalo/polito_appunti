@@ -2,7 +2,12 @@ import {CategoryList } from "./components/CategoryList/CategoryList";
 import { GeneralMaterial } from "./components/GeneralMaterial/GeneralMaterial";
 import { SearchPanel } from "./components/SearchPanel/SearchPanel";
 
-export default function Home() {
+interface PageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+export default async function Home({ searchParams }: PageProps) {
+  const lang = ((await searchParams).lang as string) || 'it'
+
   return (
      <main>
       <section id="HomePage">
@@ -11,7 +16,7 @@ export default function Home() {
           <CategoryList />
         </section>
         <section className="action-container">
-          <GeneralMaterial />       
+          <GeneralMaterial lang={lang} />       
         </section>
       </section>
     </main>
