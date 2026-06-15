@@ -9,7 +9,7 @@ import { useTranslation } from "@/app/(utils)/context/language_context/language_
 export function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q") || "";
-
+  const lang = searchParams.get("lang") || "it"
   const [internalResults, setInternalResults] = useState<FormattedLink[]>([])
   const [externalResults, setExternalResults] = useState<FormattedLink[]>([])
   const error = searchParams.get("error");
@@ -30,14 +30,14 @@ export function SearchContent() {
       setIsLoading(true)
       setNetworkError(false)
       try {
-        const result = await dbSearchByName({ name: query })
+        const result = await dbSearchByName({ name: query, lang: lang })
         if (result.status === 0 && result.int && result.ext && (result.int.length > 0 || result.ext.length > 0)) {
           setInternalResults(result.int);
           setExternalResults(result.ext);
         } else {
           setInternalResults([]);
           setExternalResults([]);
-          navigate.replace(`/search?q=${encodeURIComponent(query)}&error=empty`);
+          navigate.replace(`/search?q=${encodeURIComponent(query)}&error=empty&lang=${lang}`);
         }
       } catch (e) {
         console.error("Error during data fetch:", e);
@@ -70,7 +70,7 @@ export function SearchContent() {
     e.preventDefault();
     const trimmed = localSearchText.trim();
     if (!trimmed) return;
-    navigate.push(`/search?q=${encodeURIComponent(trimmed)}`);
+    navigate.push(`/search?q=${encodeURIComponent(trimmed)}&lang=${lang}`);
   };
 
   if (error === "empty" || (!query && error !== "network")) {

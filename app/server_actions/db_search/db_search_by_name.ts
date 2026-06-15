@@ -5,7 +5,8 @@ import connectToDb from "../db_connect/db_connect"
 import { ILink } from "@/app/(utils)/db/model/ilink";
 
 interface DbSearchByNameProps {
-    name: string
+    name: string, 
+    lang: string
 }
 
 export interface FormattedLink {
@@ -25,7 +26,7 @@ export interface FormattedLink {
  * -1 in case of missing name parameter
  * -4 in case of general error
  */
-export async function dbSearchByName({name}: DbSearchByNameProps){
+export async function dbSearchByName({name, lang="it"}: DbSearchByNameProps){
     const sanitizedQuery = name.trim()
 
     if (name.toLocaleLowerCase() === "run polito") {
@@ -56,9 +57,10 @@ export async function dbSearchByName({name}: DbSearchByNameProps){
     try {
         await connectToDb()
         const matchedLinks = await LinkModel.find({
-            name: { $regex: sanitizedQuery, $options: 'i' }
+            name: { $regex: sanitizedQuery, $options: 'i' },
+            lang: lang
         }).lean() as unknown as ILink[]
-
+        console.log(matchedLinks)
         const int: FormattedLink[] = []
         const ext: FormattedLink[] = []
 

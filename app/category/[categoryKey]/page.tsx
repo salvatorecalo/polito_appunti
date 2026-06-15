@@ -6,14 +6,17 @@ import { UploadMaterialCategory } from './components/upload_material_category/up
 import { CategoryLabel } from './components/category_label/category_label';
 
 interface PageProps {
-  params: Promise<{ categoryKey: string }>;
+  params: Promise<{ categoryKey: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export default async function CategoryPage({ params }: PageProps) {
+export default async function CategoryPage({ params, searchParams }: PageProps) {
   const { categoryKey } = await params
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as string) || "it"
   const appConfig = await getAppConfig()
   const bgColor = appConfig.backgrounds[categoryKey] || "#ED6D33"
-  const data = await dbSearchByCategory({ category: categoryKey })
+  const data = await dbSearchByCategory({ category: categoryKey, lang: lang })
   
   return (
     <section className="category-page">

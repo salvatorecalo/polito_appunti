@@ -2,8 +2,9 @@ import { MaterialCarousel } from './components/material_carousel/material_carous
 import './GeneralMaterial.css'
 import { dbSearchByCategory } from "@/app/server_actions/db_search/db_search_by_category"
 
-export async function GeneralMaterial() {
-  const { int, ext } = await dbSearchByCategory({ category: "1st" })
+export async function GeneralMaterial({lang}: {lang: string}) {
+  
+  const { int, ext } = await dbSearchByCategory({ category: "1st", lang: lang })
   return (
     <section className="general-material">
       {int ? (

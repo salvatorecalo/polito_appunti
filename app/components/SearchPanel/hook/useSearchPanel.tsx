@@ -1,10 +1,12 @@
 "use client"
 import { ChangeEvent, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export function useSearchPanel() {
     const [searchText, setSearchText] = useState<string>("")
     const router = useRouter()
+    const params = useSearchParams()
+    const lang = params.get("lang") || "it"
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -18,7 +20,7 @@ export function useSearchPanel() {
         if (!trimmedSearch) return
         setIsLoading(false)
 
-        router.push(`/search?q=${encodeURIComponent(trimmedSearch)}`)
+        router.push(`/search?q=${encodeURIComponent(trimmedSearch)}&lang=${lang}`)
     }
 
     return {
