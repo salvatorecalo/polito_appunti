@@ -1,10 +1,10 @@
 "use client"
-import { useState } from 'react';
-import './Navbar.css';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ChangeLanguageButton } from '../change_language_button/change_language_button';
-import { useTranslation } from '@/app/(utils)/context/language_context/language_context';
+import { Suspense, useState } from 'react'
+import './Navbar.css'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ChangeLanguageButton } from '../change_language_button/change_language_button'
+import { useTranslation } from '@/app/(utils)/context/language_context/language_context'
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -47,7 +47,9 @@ export function Navbar() {
                     </Link>
                 </li>
                 <li>
-                    <ChangeLanguageButton />
+                    <Suspense fallback={<div style={{ width: '60px', height: '30px' }}></div>}>
+                        <ChangeLanguageButton />
+                    </Suspense>
                 </li>
             </ul>
         </nav>
