@@ -7,5 +7,4 @@ export interface AppConfig {
     subcats_en: Record<SubCategoryKey, Record<string, string>>;
     logo: Record<string, string>;
     backgrounds: Record<string, string>;
-    color_h1: Record<string, string>;
 }

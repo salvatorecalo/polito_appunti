@@ -19,7 +19,7 @@ export function useUploadPage(){
         link: '', 
         category: optParam || '',
         sub: null,
-        lang: ''
+        lang: 'it'
     });
 
     const validateForm = (currentData: InsertPayload) => {
@@ -66,11 +66,11 @@ export function useUploadPage(){
             };
 
             const response = await insertLink(cleanPayload);
-
+            console.log(response)
             switch (response.status) {
                 case 0:
                     setPopupMessage("✅ Caricamento riuscito!")
-                    setFormData({ name: '', link: '', category: optParam || '', sub: null, lang: ''}) // Reset
+                    setFormData({ name: '', link: '', category: optParam || '', sub: null, lang: 'it'}) // Reset
                     setIsFormValid(false)
                     break;
                 case -1:

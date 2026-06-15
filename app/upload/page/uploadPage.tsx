@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../UploadPage.css';
 import { useUploadPage } from "../hook/useUploadPage";
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
+import { useEffect } from "react";
 
 export default function UploadPage({courses_it, courses_en}: {courses_it: Record<string, string>, courses_en: Record<string, string>}) {
     const {

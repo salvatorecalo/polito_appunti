@@ -19,6 +19,7 @@ export async function getAppConfig(): Promise<AppConfig> {
             "cin": "TRIENNALE CINEMA",
             "elt": "TRIENNALE ELETTRONICA",
             "fis": "TRIENNALE FISICA",
+            "mech": "TRIENNALE MECCANICA",
             "ges": "TRIENNALE GESTIONALE",
             "inf": "TRIENNALE INFORMATICA",
             "mat": "TRIENNALE MATEMATICA",
@@ -64,6 +65,7 @@ export async function getAppConfig(): Promise<AppConfig> {
             "ges": "BACHELOR'S MANAGEMENT",
             "inf": "BACHELOR'S COMPUTER ENGINEERING",
             "mat": "BACHELOR'S MATHEMATICS",
+            "mech": "BACHELOR'S MECHANICAL",
             "biomag": "MASTER'S BIOMEDICAL",
             "eltmag": "MASTER'S ELECTRONICS",
             "enrmag": "MASTER'S ENERGY",
@@ -95,6 +97,7 @@ export async function getAppConfig(): Promise<AppConfig> {
         "logo": {
             "1st": "/img/1st.webp",
             "aer": "/img/aer.webp",
+            "mech": "/img/mech.webp",
             "bio": "/img/bio.webp",
             "cin": "/img/cin.webp",
             "enrmag": "/img/enrmag.webp",
@@ -135,6 +138,9 @@ export async function getAppConfig(): Promise<AppConfig> {
             "fis": "#334155",
             "fis-dark": "#1e293b",
             
+            "mech": "#c72fc7",
+            "mech-dark": "#850e85",
+
             "ges": "#854d0e",
             "ges-dark": "#653a0a",
             
@@ -159,13 +165,5 @@ export async function getAppConfig(): Promise<AppConfig> {
             "nfimag": "#4c1d95",
             "nfimag-dark": "#36136b"
         },
-        "color_h1": {
-            "fis": "lightblue",
-            "elt": "blue",
-            "eltmag": "#9FFF00",
-            "mat": "lightblue",
-            "ges": "#941786",
-            "bio": "#941786"
-        }
     }
 }
