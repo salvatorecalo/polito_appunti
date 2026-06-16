@@ -51,7 +51,7 @@ article, .category-page p {
     font-size: 1rem;
     font-weight: 200;
     line-height: 1.4;
-    color: var(--bg-color);
+    color: var(--card-text-color);
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
