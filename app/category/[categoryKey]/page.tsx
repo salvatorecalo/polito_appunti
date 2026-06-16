@@ -4,6 +4,7 @@ import { dbSearchByCategory } from '@/app/server_actions/db_search/db_search_by_
 import { CategoryMaterialCarousel } from './components/category_material_carousel/category_material_carousel';
 import { UploadMaterialCategory } from './components/upload_material_category/upload_material_category';
 import { CategoryLabel } from './components/category_label/category_label';
+import { NoDocumentsSection } from '@/app/components/GeneralMaterial/components/material_carousel/components/no_documents_section/no_documents_section';
 
 interface PageProps {
   params: Promise<{ categoryKey: string }>
@@ -25,12 +26,12 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
       {data.int && data.int.length > 0 ? (
         <CategoryMaterialCarousel materialType={data.int} text="interno" />
       ) : (
-        <></>
+        <NoDocumentsSection />
       )}
       {data.ext && data.ext.length > 0 ? (
         <CategoryMaterialCarousel materialType={data.ext} text="esterno" />
       ) : (
-        <></>
+        <NoDocumentsSection />
       )
       }
     </section>
