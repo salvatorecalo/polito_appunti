@@ -14,7 +14,7 @@ interface MongooseGlobalCache {
 let client: MongooseGlobalCache = (globalThis as any).mongooseCache;
 
 if (!client) {
-    client = (globalThis as any).mongooseCache = { conn: null, promise: null };
+    client = (globalThis as any).mongooseCache = { conn: null, promise: null }
 }
 
 async function connectToDb(): Promise<Connection> {
