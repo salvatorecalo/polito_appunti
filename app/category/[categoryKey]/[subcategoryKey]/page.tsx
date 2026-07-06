@@ -3,7 +3,6 @@ import { getAppConfig } from '@/app/server_actions/get_app_config/get_app_config
 import { CategoryLabel } from '@/app/category/[categoryKey]/components/category_label/category_label';
 import { UploadMaterialCategory } from '../components/upload_material_category/upload_material_category';
 import { CategoryMaterialCarousel } from '../components/category_material_carousel/category_material_carousel';
-import { NoDocumentsSection } from '../components/no_documents_section/no_documents_section';
 import { dbSearchBySubCategory } from '@/app/server_actions/db_search/db_search_by_subcategory';
 
 interface PageProps {
@@ -35,16 +34,12 @@ export default async function SubCategoryPage({ params, searchParams }: PageProp
       
       <UploadMaterialCategory categoryKey={subcategoryKey} />
       
-      {data.int && data.int.length > 0 ? (
+      {data.int &&  (
         <CategoryMaterialCarousel materialType={data.int} text="interno" />
-      ) : (
-        <NoDocumentsSection />
       )}
       
-      {data.ext && data.ext.length > 0 ? (
+      {data.ext &&  (
         <CategoryMaterialCarousel materialType={data.ext} text="esterno" />
-      ) : (
-        <NoDocumentsSection />
       )}
     </section>
   );

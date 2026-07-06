@@ -4,14 +4,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../UploadPage.css';
 import { useUploadPage } from "../hook/useUploadPage";
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
-import { useEffect } from "react";
+import { SubCategoryKey } from "@/app/(utils)/db/model/course_and_sub_types";
 
-export default function UploadPage({courses_it, courses_en}: {courses_it: Record<string, string>, courses_en: Record<string, string>}) {
-    const {
-        actions, popupMessage, formData, isFormValid
-    } = useUploadPage();
+interface UploadPageProps {
+    courses_it: Record<string, string>;
+    courses_en: Record<string, string>;
+    subcats_it: Record<SubCategoryKey, Record<string, string>>;
+    subcats_en: Record<SubCategoryKey, Record<string, string>>;
+}
 
-    const { t: translator, lang } = useTranslation()
+export default function UploadPage({courses_it, courses_en, subcats_it, subcats_en}: UploadPageProps) {
+    const { actions, popupMessage, formData, isFormValid } = useUploadPage();
+    const { t: translator, lang } = useTranslation();
+
+    const allSubcats = lang === "it" ? subcats_it : subcats_en;
+    
+    const currentCategorySubcats = formData.category 
+        ? (allSubcats[formData.category as SubCategoryKey] || {}) 
+        : {};
+
+    const hasSubcats = Object.keys(currentCategorySubcats).length > 0;
 
     return (
         <section id="UploadPage">
@@ -87,7 +99,35 @@ export default function UploadPage({courses_it, courses_en}: {courses_it: Record
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="category">{translator.uploadPage.lang}</label>
+                        <label htmlFor="subcategory">{translator.uploadPage.subcategoryCouse}</label>
+                        <div className="input-field-wrapper">
+                            <select
+                                id="sub"
+                                name="sub"
+                                value={formData.sub as string}
+                                onChange={actions.handleChange}
+                                onBlur={actions.handleBlur}
+                                className="custom-select"
+                                disabled={!hasSubcats} 
+                            >
+                                <option value="">
+                                    {!formData.category 
+                                        ? "Prima seleziona una categoria..." 
+                                        : translator.uploadPage.selectASubCategory}
+                                </option>
+                                
+                                {Object.entries(currentCategorySubcats).map(([subKey, subLabel]) => (
+                                    <option key={subKey} value={subKey}>
+                                        {subLabel as string}
+                                    </option>
+                                ))}
+                            </select>
+                            <FontAwesomeIcon icon={faBook} className="input-icon" />
+                        </div>
+                    </div>
+
+                    <div className="input-group">
+                        <label htmlFor="lang">{translator.uploadPage.lang}</label>
                         <div className="input-field-wrapper">
                             <select
                                 id="lang"

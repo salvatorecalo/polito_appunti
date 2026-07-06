@@ -5,6 +5,7 @@ import { dbSearchByName, FormattedLink } from '@/app/server_actions/db_search/db
 import Image from "next/image"
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context"
 import { MaterialCarousel } from "@/app/category/[categoryKey]/components/material_carousel"
+import { CategoryMaterialCarouselTitle } from "@/app/category/[categoryKey]/components/category_material_carousel/components/category_material_carousel_title/category_material_carousel_title"
 
 export function SearchContent() {
   const searchParams = useSearchParams();

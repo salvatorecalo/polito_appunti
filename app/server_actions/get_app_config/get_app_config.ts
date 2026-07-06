@@ -34,6 +34,13 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "d1": "DUMMY SUB1",
                 "d2": "DUMMY SUB2"
             },
+            "ing": {
+                "mat": "MATEMATICA",
+                "fis": "FISICA",
+                "dis": "DISEGNO TECNICO",
+                "log": "LOGICA",
+                "gen": "GENERALE"
+            },
             "1st": {
                 "alg": "ALGEBRA",
                 "an1": "ANALISI 1",
@@ -84,6 +91,13 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "fis": "PHYSICS 1",
                 "ielts": "IELTS",
                 "inf": "COMPUTER SCIENCE"
+            },
+            "ing": {
+                "mat": "MATH",
+                "fis": "PHYSICS",
+                "dis": "Technical draw",
+                "log": "LOGIC",
+                "gen": "GENERAL"
             },
             "bio": {
                 "bes": "Biomedical Instrumentation and Safety",
