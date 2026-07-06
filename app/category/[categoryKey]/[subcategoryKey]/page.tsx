@@ -1,6 +1,5 @@
 import '../CategoryPage.css';
 import { getAppConfig } from '@/app/server_actions/get_app_config/get_app_config';
-import { dbSearchByCategory } from '@/app/server_actions/db_search/db_search_by_category';
 import { CategoryLabel } from '@/app/category/[categoryKey]/components/category_label/category_label';
 import { UploadMaterialCategory } from '../components/upload_material_category/upload_material_category';
 import { CategoryMaterialCarousel } from '../components/category_material_carousel/category_material_carousel';

@@ -4,7 +4,8 @@ import { FormattedLink } from "./db_search_by_name"
 
 
 interface DbSearchBySubCategoryProp {
-    subCategory: string
+    subCategory: string,
+    lang: string
 }
 
 /**
@@ -15,7 +16,7 @@ interface DbSearchBySubCategoryProp {
  * -1 in case of missing category parameter
  * -4 in case of general error
  */
-export async function dbSearchBySubCategory({subCategory}: DbSearchBySubCategoryProp){
+export async function dbSearchBySubCategory({subCategory, lang}: DbSearchBySubCategoryProp){
     const sanitizedSubCategory = subCategory.trim()
 
     if (!subCategory || sanitizedSubCategory === "") {
@@ -28,7 +29,7 @@ export async function dbSearchBySubCategory({subCategory}: DbSearchBySubCategory
     try {
         await connectToDb()
         const matchedLinks = await LinkModel.find({
-            sub: sanitizedSubCategory
+            sub: sanitizedSubCategory, lang: lang
         })
 
         const int: FormattedLink[] = []

@@ -2,9 +2,9 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { SearchInput } from '@/app/components/SearchPanel/components/search_input/search_input'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { dbSearchByName, FormattedLink } from '@/app/server_actions/db_search/db_search_by_name'
-import { MaterialCarousel } from '../../components/GeneralMaterial/components/material_carousel/material_carousel'
 import Image from "next/image"
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context"
+import { MaterialCarousel } from "@/app/category/[categoryKey]/components/material_carousel"
 
 export function SearchContent() {
   const searchParams = useSearchParams();
