@@ -31,7 +31,7 @@ export function CategoryLabel({appConfig, categoryKey, bgColor}: CategoryLabelPr
     const finalLabel = label || (lang === "it" ? "Categoria Sconosciuta" : "Unknown Category");
 
     return (
-        <hgroup style={{ background: bgColor }}>
+        <hgroup style={{ background: bgColor, marginTop: "1rem" }}>
             <h2>{finalLabel}</h2>
         </hgroup>
     );
