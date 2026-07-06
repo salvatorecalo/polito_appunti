@@ -1,6 +1,7 @@
 "use client"
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context"
 import Image from "next/image"
+import './no_documents_section.css'
 
 export function NoDocumentsSection() {
     const {t:translator} = useTranslation()
