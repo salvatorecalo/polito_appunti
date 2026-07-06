@@ -1,5 +1,4 @@
 import {CategoryList } from "./components/CategoryList/CategoryList";
-import { GeneralMaterial } from "./components/GeneralMaterial/GeneralMaterial";
 import { SearchPanel } from "./components/SearchPanel/SearchPanel";
 
 interface PageProps {
@@ -10,15 +9,12 @@ export default async function Home({ searchParams }: PageProps) {
 
   return (
      <main>
-      <section id="HomePage">
-        <section className="action-container">
-          <SearchPanel />
-          <CategoryList />
+        <section id="HomePage">
+          <section className="action-container">
+            <SearchPanel />
+            <CategoryList />
+          </section>
         </section>
-        <section className="action-container">
-          <GeneralMaterial lang={lang} />       
-        </section>
-      </section>
     </main>
   );
 }

@@ -15,13 +15,13 @@ interface DbSearchBySubCategoryProp {
  * -1 in case of missing category parameter
  * -4 in case of general error
  */
-export async function dbSearchByCategory({subCategory}: DbSearchBySubCategoryProp){
+export async function dbSearchBySubCategory({subCategory}: DbSearchBySubCategoryProp){
     const sanitizedSubCategory = subCategory.trim()
 
     if (!subCategory || sanitizedSubCategory === "") {
         return {
             status: -1,
-            error: "Please specify a category"
+            error: "Please specify a subcategory"
         }
     }
 
