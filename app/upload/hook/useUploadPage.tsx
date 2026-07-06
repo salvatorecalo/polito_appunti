@@ -11,14 +11,15 @@ export function useUploadPage(){
     const [isFormValid, setIsFormValid] = useState<boolean>(false);
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
     const searchParams = useSearchParams()
-    const optParam = searchParams.get("opt")
+    const category = searchParams.get("cat")
+    const subCategory = searchParams.get("sub")
     const {t: translator} = useTranslation()
 
     const [formData, setFormData] = useState<InsertPayload>({ 
         name: '', 
         link: '', 
-        category: optParam || '',
-        sub: null,
+        category: category || '',
+        sub: subCategory as SubCategoryKey || null,
         lang: 'it'
     });
 

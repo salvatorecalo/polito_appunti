@@ -12,7 +12,6 @@ interface PageProps {
 
 export default async function SubCategoryPage({ params, searchParams }: PageProps) {
   const { categoryKey, subcategoryKey } = await params;
-  console.log(categoryKey, subcategoryKey)
   const resolvedSearchParams = await searchParams;
   const lang = (resolvedSearchParams.lang as string) || "it";
   
@@ -32,7 +31,7 @@ export default async function SubCategoryPage({ params, searchParams }: PageProp
           categoryKey={subcategoryKey} 
       />
       
-      <UploadMaterialCategory categoryKey={subcategoryKey} />
+      <UploadMaterialCategory categoryKey={categoryKey} subCategory={subcategoryKey} />
       
       {data.int &&  (
         <CategoryMaterialCarousel materialType={data.int} text="interno" />

@@ -5,6 +5,7 @@ import '../UploadPage.css';
 import { useUploadPage } from "../hook/useUploadPage";
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
 import { SubCategoryKey } from "@/app/(utils)/db/model/course_and_sub_types";
+import { useSearchParams } from "next/navigation";
 
 interface UploadPageProps {
     courses_it: Record<string, string>;
@@ -16,7 +17,6 @@ interface UploadPageProps {
 export default function UploadPage({courses_it, courses_en, subcats_it, subcats_en}: UploadPageProps) {
     const { actions, popupMessage, formData, isFormValid } = useUploadPage();
     const { t: translator, lang } = useTranslation();
-
     const allSubcats = lang === "it" ? subcats_it : subcats_en;
     
     const currentCategorySubcats = formData.category 
