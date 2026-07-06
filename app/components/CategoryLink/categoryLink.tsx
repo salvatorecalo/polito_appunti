@@ -25,7 +25,7 @@ export function CategoryLink({parentKey, subcatKey, lang, backgrounds, bgColor, 
                 '--category-hover-bg': backgrounds[`${subcatKey}-dark` as keyof typeof backgrounds] || bgColor,
             } as React.CSSProperties}
         >
-            {subcatLabel as string}
+            {(subcatLabel as string).toUpperCase()}
         </Link>
     )
 }

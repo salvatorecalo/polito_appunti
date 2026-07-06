@@ -4,4 +4,4 @@ export type CategoryKey =
     | "biomag" | "eltmag" | "enrmag" | "gesmag" | "nfimag" 
     | string;
 
-export type SubCategoryKey = "dummy" | "1st" | "bio" | "lib" | "ing";
+export type SubCategoryKey = "dummy" | "1st" | "bio" | "lib" | "ing" | "2nd" | "aer";

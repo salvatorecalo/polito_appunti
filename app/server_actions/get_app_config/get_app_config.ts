@@ -47,11 +47,26 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "chim": "CHIMICA",
                 "fis": "FISICA 1",
                 "ielts": "IELTS",
-                "inf": "INFORMATICA"
+                "inf": "INFORMATICA",
+                "tec": "TECNICHE DI PROGRAMMAZIONE",
+                "gen": "GENERALE"
+            },
+            "2nd": {
+                "an2": "ANALISI II",
+                "eletcn": "ELETTROTECNICA",
+                "fis2": "FISICA II"
+            },
+            "aer": {
+                "aereletcn": "ELETTROTECNICA",
+                "aergen": "GENERALE",
+                "aerdis": "DISEGNO TECNICO"
             },
             "bio": {
                 "bes": "Strumentazione biomedica e sicurezza",
-                "stm": "Scienze e Tecnologia dei Materiali"
+                "stm": "Scienze e Tecnologia dei Materiali",
+                "bioeletch": "ELETTROTECNICA",
+                "biodis": "DISEGNO TECNICO",
+                "fisio": "FISIOLOGIA"
             },
             "lib": {
                 "nano": "Introduzione alle nanotecnologie",
@@ -90,7 +105,13 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "chim": "CHEMISTRY",
                 "fis": "PHYSICS 1",
                 "ielts": "IELTS",
-                "inf": "COMPUTER SCIENCE"
+                "inf": "COMPUTER SCIENCE",
+                "tec": "PROGRAMMING TECHNIQUES",
+                "gen": "GENERAL"
+            },
+            "2nd": {
+                "an2": "ANALYSIS II",
+                "eletcn": "ELETTROTECNIC"
             },
             "ing": {
                 "mat": "MATH",
