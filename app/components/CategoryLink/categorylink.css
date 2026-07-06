@@ -1,0 +1,23 @@
+
+.category-link {
+    background: var(--category-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1em;
+    border-radius: 4px;
+    margin: 0 0 1.2em 0;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: clamp(0.8em, 0.8vw, 1em);
+}
+
+.category-link:hover {
+    background: var(--category-hover-bg);
+}

@@ -1,7 +1,7 @@
-import { NoDocumentsSection } from "@/app/components/GeneralMaterial/components/material_carousel/components/no_documents_section/no_documents_section";
 import { FormattedLink } from "@/app/server_actions/db_search/db_search_by_name";
 import { CategoryMaterialCard } from "./components/category_material_card";
 import { CategoryMaterialCarouselTitle } from "./components/category_material_carousel_title/category_material_carousel_title";
+import { NoDocumentsSection } from "../no_documents_section/no_documents_section";
 
 interface MaterialCarouselProp {
     materialType: FormattedLink[],

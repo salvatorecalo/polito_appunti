@@ -1,7 +1,7 @@
 "use client"
 import { FormattedLink } from "@/app/server_actions/db_search/db_search_by_name";
-import { NoDocumentsSection } from "./components/no_documents_section/no_documents_section";
-import { MaterialCard } from "./components/ material_card/material_card";
+import { NoDocumentsSection } from "./no_documents_section/no_documents_section";
+import { MaterialCard } from "./ material_card/material_card";
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context";
 
 interface MaterialCarouselProp {
