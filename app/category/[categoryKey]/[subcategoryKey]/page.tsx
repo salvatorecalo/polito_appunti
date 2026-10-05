@@ -22,7 +22,6 @@ export default async function SubCategoryPage({ params, searchParams }: PageProp
                   || "#ED6D33";
 
   const data = await dbSearchBySubCategory({ subCategory: subcategoryKey, lang: lang });
-
   return (
     <section className="category-page">
       <CategoryLabel 

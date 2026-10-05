@@ -71,7 +71,7 @@ export function useUploadPage(){
             switch (response.status) {
                 case 0:
                     setPopupMessage("✅ Caricamento riuscito!")
-                    setFormData({ name: '', link: '', category: optParam || '', sub: null, lang: 'it'}) // Reset
+                    setFormData({ name: '', link: '', category: formData.category || '', sub: null, lang: 'it'}) // Reset
                     setIsFormValid(false)
                     break;
                 case -1:

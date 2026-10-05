@@ -35,6 +35,8 @@ const LinkSchema: Schema = new Schema({
         required: true,
         default: "it"
     }
+}, {
+    collection: 'test' 
 })
 
 const LinkModel = mongoose.models.Link || mongoose.model<ILink>('Link', LinkSchema)
