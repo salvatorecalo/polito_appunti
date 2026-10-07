@@ -73,7 +73,8 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "2nd_eletcn": "ELETTROTECNICA",
                 "2nd_fis2": "FISICA II",
                 "2nd_mechraz": "MECCANICA RAZIONALE",
-                "2nd_scicost": "SCIENZA DELLE COSTRUZIONI"
+                "2nd_scicost": "SCIENZA DELLE COSTRUZIONI",
+                "2nd_gen": "GENERALE"
             },
             "aer": {
                 "aer_eletcn": "ELETTROTECNICA",
@@ -87,7 +88,8 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "aut_din": "DINAMICA DEL VEICOLO",
                 "aut_mot": "MOTORI A COMBUSTIONE INTERNA",
                 "aut_dis": "DISEGNO DI AUTOVEICOLI",
-                "aut_macc": "MECCANICA APPLICATA ALLE MACCHINE"
+                "aut_macc": "MECCANICA APPLICATA ALLE MACCHINE",
+                "aut_gen": "GENERALE"
             },
             "bio": {
                 "bio_bes": "Strumentazione biomedica e sicurezza",
@@ -95,49 +97,57 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "bio_eletch": "ELETTROTECNICA",
                 "bio_dis": "DISEGNO TECNICO",
                 "bio_fisio": "FISIOLOGIA UMANA",
-                "bio_mech": "BIOMECCANICA"
+                "bio_mech": "BIOMECCANICA",
+                "bio_gen": "GENERALE"
             },
             "cin": {
                 "cin_stcin": "Storia del Cinema",
                 "cin_tecmul": "Tecnologie Multimediali",
                 "cin_promul": "Produzione Multimediale",
-                "cin_sem": "Semiotica e Storytelling"
+                "cin_sem": "Semiotica e Storytelling",
+                "cin_gen": "GENERALE"
             },
             "civ": {
                 "civ_idr": "Idraulica",
                 "civ_geo": "Geotecnica",
                 "civ_teccost": "Tecnica delle Costruzioni",
-                "civ_top": "Topografia e Cartografia"
+                "civ_top": "Topografia e Cartografia",
+                "civ_gen": "GENERALE"
             },
             "ele": {
                 "ele_maccele": "Macchine Elettriche",
                 "ele_impele": "Impianti Elettrici",
-                "ele_mis": "Misure Elettriche ed Elettroniche"
+                "ele_mis": "Misure Elettriche ed Elettroniche",
+                "ele_gen": "GENERALE"
             },
             "elt": {
                 "elt_dig": "Elettronica Digitale",
                 "elt_ana": "Elettronica Analogica",
                 "elt_sig": "Segnali e Sistemi",
                 "elt_mcro": "Microelettronica e Dispositivi",
-                "elt_campi": "Campi Elettromagnetici"
+                "elt_campi": "Campi Elettromagnetici",
+                "elt_gen": "GENERALE"
             },
             "enr": {
                 "enr_fistec": "Fisica Tecnica",
                 "enr_maccterm": "Macchine Termiche",
-                "enr_impener": "Impianti Energetici"
+                "enr_impener": "Impianti Energetici",
+                "enr_gen": "GENERALE"
             },
             "fis": {
                 "fis_meccan": "Meccanica Quantistica",
                 "fis_mat": "Fisica Matematica",
                 "fis_ott": "Ottica e Fotonica",
-                "fis_stato": "Fisica dello Stato Solido"
+                "fis_stato": "Fisica dello Stato Solido",
+                "fis_gen": "GENERALE"
             },
             "ges": {
                 "ges_eco": "Economia e Organizzazione Aziendale",
                 "ges_pr": "Gestione dei Progetti (Project Management)",
                 "ges_ricop": "Ricerca Operativa",
                 "ges_prod": "Gestione dei Sistemi Produttivi",
-                "ges_statis": "Statistica e Analisi Dati"
+                "ges_statis": "Statistica e Analisi Dati",
+                "ges_gen": "GENERALE"
             },
             "inf": {
                 "inf_poo": "Programmazione a Oggetti (OOP)",
@@ -146,109 +156,129 @@ export async function getAppConfig(): Promise<AppConfig> {
                 "inf_so": "Sistemi Operativi",
                 "inf_net": "Reti di Calcolatori",
                 "inf_archcalc": "Architettura dei Calcolatori",
-                "inf_aut": "Controlli Automatici"
+                "inf_aut": "Controlli Automatici",
+                "inf_gen": "GENERALE"
             },
             "mat": {
                 "mat_algeb": "Algebra Astratta e Numerica",
                 "mat_anreal": "Analisi Reale e Complessa",
                 "mat_prob": "Calcolo delle Probabilità e Statistica",
-                "mat_calcnom": "Calcolo Numerico"
+                "mat_calcnom": "Calcolo Numerico",
+                "mat_gen": "GENERALE"
             },
             "mech": {
                 "mech_disind": "Disegno Tecnico Industriale",
                 "mech_fistec": "Fisica Tecnica e Termodinamica",
                 "mech_macc": "Meccanica Applicata alle Macchine",
                 "mech_tecmec": "Tecnologie Meccaniche",
-                "mech_costmec": "Costruzione di Macchine"
+                "mech_costmec": "Costruzione di Macchine",
+                "mech_gen": "GENERALE"
             },
             "amb": {
                 "amb_ecol": "Ecologia Applicata",
                 "amb_idrolog": "Idrologia",
-                "amb_ingamb": "Ingegneria Sanitaria e Ambientale"
+                "amb_ingamb": "Ingegneria Sanitaria e Ambientale",
+                "amb_gen": "GENERALE"
             },
             "arch": {
                 "arch_starch": "Storia dell'Architettura",
                 "arch_labpros": "Laboratorio di Progettazione",
                 "arch_rest": "Restauro Architettonico",
-                "arch_urban": "Urbanistica"
+                "arch_urban": "Urbanistica",
+                "arch_gen": "GENERALE"
             },
             "des": {
                 "des_desind": "Product Design",
                 "des_graf": "Grafica e Visual Design",
-                "des_uxui": "User Experience e UI Design"
+                "des_uxui": "User Experience e UI Design",
+                "des_gen": "GENERALE"
             },
             "lib": {
                 "lib_nano": "Introduzione alle nanotecnologie",
                 "lib_tecamb": "Tecnologie Ambientali dei Siti produttivi",
-                "lib_diritto": "Diritto dell'Economia e dell'Innovazione"
+                "lib_diritto": "Diritto dell'Economia e dell'Innovazione",
+                "lib_gen": "GENERALE"
             },
 
             // MAGISTRALI SUB
             "aermag": {
                 "aermag_aerodyn": "Aerodinamica Avanzata e Gasdinamica",
                 "aermag_spaciesys": "Sistemi Spaziali e Meccanica Orbitale",
-                "aermag_aerostruct": "Strutture e Materiali Compositi"
+                "aermag_aerostruct": "Strutture e Materiali Compositi",
+                "aermag_gen": "GENERALE"
             },
             "autmag": {
                 "autmag_ev": "Veicoli Elettrici ed Ibridi",
                 "autmag_adas": "Sistemi di Guida Autonoma (ADAS)",
-                "autmag_nvh": "Rumore e Vibrazioni (NVH)"
+                "autmag_nvh": "Rumore e Vibrazioni (NVH)",
+                "autmag_gen": "GENERALE"
             },
             "biomag": {
                 "biomag_biomater": "Biomateriali Avanzati",
                 "biomag_elabor": "Elaborazione di Segnali e Immagini Biomediche",
-                "biomag_protesi": "Progettazione di Protesi e Organi Artificiali"
+                "biomag_protesi": "Progettazione di Protesi e Organi Artificiali",
+                "biomag_gen": "GENERALE"
             },
             "civmag": {
                 "civmag_structeng": "Ingegneria delle Strutture in C.A. e Acciaio",
                 "civmag_geotech": "Geotecnica Avanzata",
-                "civmag_infrastr": "Infrastrutture Viarie e Trasporti"
+                "civmag_infrastr": "Infrastrutture Viarie e Trasporti",
+                "civmag_gen": "GENERALE"
             },
             "cybmag": {
                 "cybmag_netsec": "Sicurezza delle Reti e Crittografia",
                 "cybmag_ethhack": "Ethical Hacking e Malware Analysis",
-                "cybmag_softsec": "Software e System Security"
+                "cybmag_softsec": "Software e System Security",
+                "cybmag_gen": "GENERALE"
             },
             "datmag": {
                 "datmag_bigdata": "Big Data Processing Systems",
                 "datmag_statlearn": "Statistical Learning",
-                "datmag_deeplearn": "Deep Learning e Computer Vision"
+                "datmag_deeplearn": "Deep Learning e Computer Vision",
+                "datmag_gen": "GENERALE"
             },
             "eltmag": {
                 "eltmag_vlsidesign": "Progettazione Sistemi VLSI",
                 "eltmag_rf": "Elettronica a Radiofrequenza e Microonde",
-                "eltmag_sensori": "Sensori e Microsistemi (MEMS)"
+                "eltmag_sensori": "Sensori e Microsistemi (MEMS)",
+                "eltmag_gen": "GENERALE"
             },
             "enrmag": {
                 "enrmag_rinnovabili": "Energie Rinnovabili e Sostenibilità",
                 "enrmag_nuclear": "Ingegneria Nucleare e Termofisica Avanzata",
-                "enrmag_effener": "Efficienza Energetica negli Edifici e nell'Industria"
+                "enrmag_effener": "Efficienza Energetica negli Edifici e nell'Industria",
+                "enrmag_gen": "GENERALE"
             },
             "gesmag": {
                 "gesmag_supply": "Supply Chain Management",
                 "gesmag_finanz": "Finanza Aziendale e Valutazione Investimenti",
-                "gesmag_digitalbus": "Digital Business Transformation"
+                "gesmag_digitalbus": "Digital Business Transformation",
+                "gesmag_gen": "GENERALE"
             },
             "infmag": {
                 "infmag_distsys": "Sistemi Distribuiti e Cloud Computing",
                 "infmag_ml": "Machine Learning e Intelligenza Artificiale",
                 "infmag_webinfo": "Web Information Systems",
-                "infmag_sweng": "Ingegneria del Software Avanzata"
+                "infmag_sweng": "Ingegneria del Software Avanzata",
+                "infmag_gen": "GENERALE"
             },
             "mechmag": {
                 "mechmag_robotics": "Robotica Industriale e Automazione",
                 "mechmag_fem": "Analisi agli Elementi Finiti (FEM)",
-                "mechmag_tribo": "Tribologia e Progettazione Organi Meccanici"
+                "mechmag_tribo": "Tribologia e Progettazione Organi Meccanici",
+                "mechmag_gen": "GENERALE"
             },
             "nfimag": {
                 "nfimag_nanodev": "Nanodevices and Quantum Electronics",
                 "nfimag_nanofab": "Nanofabrication Technologies",
-                "nfimag_bionano": "Bionanotechnology"
+                "nfimag_bionano": "Bionanotechnology",
+                "nfimag_gen": "GENERALE"
             },
             "archmag": {
                 "archmag_archdesign": "Progettazione Architettonica Avanzata",
                 "archmag_restauro": "Conservazione del Patrimonio",
-                "archmag_bim": "Building Information Modeling (BIM)"
+                "archmag_bim": "Building Information Modeling (BIM)",
+                "archmag_gen": "GENERALE"
             }
         },
         "categories_en": {
