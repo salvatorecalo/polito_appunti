@@ -23,7 +23,12 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
       <CategoryLabel bgColor={bgColor} appConfig={appConfig} categoryKey={categoryKey} />
 
       {Object.entries(currentCategorySubcats).map(([subcatKey, subcatLabel]) => (
-        <Suspense key={subcatKey} fallback={<h2>{subcatLabel as string}</h2>}>
+        <Suspense key={subcatKey} fallback={
+          <>
+            <h2>{subcatLabel as string}</h2>
+            <p>Loading...</p>
+          </>
+        }>
           <SubcategorySection
             categoryKey={categoryKey}
             subcatKey={subcatKey}
