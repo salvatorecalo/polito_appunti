@@ -5,14 +5,12 @@ import { dbSearchByName, FormattedLink } from '@/app/server_actions/db_search/db
 import Image from "next/image"
 import { useTranslation } from "@/app/(utils)/context/language_context/language_context"
 import { MaterialCarousel } from "@/app/category/[categoryKey]/components/material_carousel"
-import { CategoryMaterialCarouselTitle } from "@/app/category/[categoryKey]/components/category_material_carousel/components/category_material_carousel_title/category_material_carousel_title"
 
 export function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q") || "";
   const lang = searchParams.get("lang") || "it"
-  const [internalResults, setInternalResults] = useState<FormattedLink[]>([])
-  const [externalResults, setExternalResults] = useState<FormattedLink[]>([])
+  const [results, setResults] = useState<FormattedLink[]>([])
   const error = searchParams.get("error");
   const [localSearchText, setLocalSearchText] = useState<string>(query);
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -32,12 +30,10 @@ export function SearchContent() {
       setNetworkError(false)
       try {
         const result = await dbSearchByName({ name: query, lang: lang })
-        if (result.status === 0 && result.int && result.ext && (result.int.length > 0 || result.ext.length > 0)) {
-          setInternalResults(result.int);
-          setExternalResults(result.ext);
+        if (result.status === 0 || (result.data && result.data.length > 0)) {
+          setResults(result.data);
         } else {
-          setInternalResults([]);
-          setExternalResults([]);
+          setResults([])
           navigate.replace(`/search?q=${encodeURIComponent(query)}&error=empty&lang=${lang}`);
         }
       } catch (e) {
@@ -109,7 +105,7 @@ export function SearchContent() {
     );
   }
   
-  const isRunPolitoEasterEgg = externalResults[0]?.name .toLowerCase() === "run polito";
+  const isRunPolitoEasterEgg = results[0]?.name?.toLowerCase() === "run polito";
 
   return (
     <section className="SearchResults">
@@ -141,8 +137,7 @@ export function SearchContent() {
           </div>
         ) : (
           <>
-            <MaterialCarousel materialType={internalResults} text="interno" />
-            <MaterialCarousel materialType={externalResults} text="esterno" />
+            <MaterialCarousel materialType={results} text="interno" />
           </>
         )
       )}
