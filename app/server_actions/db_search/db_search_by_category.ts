@@ -43,7 +43,8 @@ export async function dbSearchByCategory({category, lang="it"}: DbSearchByCatego
                 link: item.link,
                 category: item.category,
                 sub: item.sub,
-                lang: item.lang
+                lang: item.lang,
+                ext: item.is_ext
             };
 
             if (item.is_ext) {
