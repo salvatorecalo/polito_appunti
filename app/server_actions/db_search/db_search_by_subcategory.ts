@@ -31,9 +31,7 @@ export async function dbSearchBySubCategory({subCategory, lang}: DbSearchBySubCa
         const matchedLinks = await LinkModel.find({
             sub: sanitizedSubCategory, lang: lang
         })
-
-        const int: FormattedLink[] = []
-        const ext: FormattedLink[] = []
+        const data: FormattedLink[] = []
 
         matchedLinks.forEach((item) => {
             const formattedLink: FormattedLink = {
@@ -42,25 +40,21 @@ export async function dbSearchBySubCategory({subCategory, lang}: DbSearchBySubCa
                 link: item.link,
                 category: item.category,
                 sub: item.sub,
-                lang: item.lang
+                lang: item.lang,
+                ext: item.is_ext
             };
 
-            if (item.is_ext) {
-                ext.push(formattedLink);
-            } else {
-                int.push(formattedLink);
-            }
+            data.push(formattedLink);
         })
 
         return {
             status: 0,
-            int,
-            ext
+            data
         }
-    } catch (e) {
+    } catch (e: any) {
         return {
-            status: "-4",
-            error: e
+            status: -4,
+            error: e.message || "An error occurred while searching for materials by subcategory."
         }
     }
 }

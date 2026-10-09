@@ -9,13 +9,13 @@ interface UploadMaterialCategory {
     subCategory: string,
 }
 
-export function UploadMaterialCategory({categoryKey, subCategory}: UploadMaterialCategory){
-    const {t: translator} = useTranslation()
+export function UploadMaterialCategory({ categoryKey, subCategory }: UploadMaterialCategory) {
+    const { t: translator } = useTranslation()
 
     return (
         <Link href={`/upload?cat=${categoryKey}&sub=${subCategory}`} className="categoryUploadButton">
-        <FontAwesomeIcon icon={faUpload} />
-        {translator.categoryPage.uploadMaterialForCategory}
-      </Link>
+            <FontAwesomeIcon icon={faUpload} />
+            {translator.categoryPage.uploadMaterialForCategory}
+        </Link>
     )
 }

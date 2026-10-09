@@ -9,7 +9,13 @@ export function GoToMessageButton({item}: {item: FormattedLink}){
 
     return (
         <Link href={item.link} target="_blank" rel="noopener noreferrer">
-                 {translator.general.goToMessage}
+            {
+                item.ext ?
+                    translator.general.goToExternalMessage
+                    :
+                    translator.general.goToMessage
+            }
+                
         </Link>
     )
 }

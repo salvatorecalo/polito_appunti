@@ -8,7 +8,8 @@ export const en = {
     },
     general: {
         networkError: "Network error. Unable to connect to the database.",
-        goToMessage: "go to message"
+        goToMessage: "go to message",
+        goToExternalMessage: "go to external content"
     },
     footer: {
         footerText: (elm1: ReactNode, elm2: ReactNode) => ["Polito Appunti is a project ",elm1, " and uses these ", elm2],

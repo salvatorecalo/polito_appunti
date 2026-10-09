@@ -12,7 +12,9 @@ export const it = {
     },
     general: {
         networkError: "Errore di rete. Impossibile contattare il database.",
-        goToMessage: "vai al messaggio"
+        goToMessage: "vai al messaggio",
+        goToExternalMessage: "vai al contenuto esterno"
+
     },
     homepage: {
         mainHeading: "Cerca gratuitamente il materiale per preparare i tuoi esami",

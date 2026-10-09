@@ -6,11 +6,10 @@ import { GoToMessageButton } from "./components/go_to_message_button/go_to_messa
 
 interface MaterialCardProp {
     item: FormattedLink,
-    text: string,
     idx: string
 }
 
-export async function CategoryMaterialCard({item, text, idx}: MaterialCardProp) {
+export async function CategoryMaterialCard({item, idx}: MaterialCardProp) {
     const appConfig = await getAppConfig()
 
     function setIcon(sub: string){
@@ -21,7 +20,7 @@ export async function CategoryMaterialCard({item, text, idx}: MaterialCardProp) 
     }
 
     return (
-        <article key={`${text}-${item.id || idx}`}>
+        <article key={`materiale-${item.id || idx}`}>
             <div className="card-icon-wrapper">
                 <Image src={setIcon(item.sub || "") || "/default_icon.webp"} alt={`${item.name} icon`} width={50} height={50} />
             </div>

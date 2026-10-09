@@ -15,7 +15,8 @@ export interface FormattedLink {
     link: string;
     category: string;
     sub: string | null;
-    lang: string
+    lang: string;
+    ext: boolean;
 }
 
 /**
@@ -30,21 +31,20 @@ export async function dbSearchByName({name, lang="it"}: DbSearchByNameProps){
     const sanitizedQuery = name.trim()
 
     if (name.toLocaleLowerCase() === "run polito") {
-        const int: FormattedLink[] = []
-        const ext: FormattedLink[] = [
+        const data: FormattedLink[] = [
             {
                 "id": "run_easter_egg",
                 name: "Run polito",
                 link: "https://www.runpolito.it",
                 category: "run",
                 sub: "run",
-                lang: "en"
+                lang: "en",
+                ext: true
             }
         ]
         return {
             status: 0,
-            int,
-            ext // ext
+            data
         }
     }
     if (!name || sanitizedQuery === "") {
@@ -61,8 +61,7 @@ export async function dbSearchByName({name, lang="it"}: DbSearchByNameProps){
             lang: lang
         }).lean() as unknown as ILink[]
         console.log(matchedLinks)
-        const int: FormattedLink[] = []
-        const ext: FormattedLink[] = []
+        const data: FormattedLink[] = []
 
         matchedLinks.map((item: any) => {
             const formattedLink: FormattedLink = {
@@ -71,20 +70,16 @@ export async function dbSearchByName({name, lang="it"}: DbSearchByNameProps){
                 link: item.link,
                 category: item.category,
                 sub: item.sub,
-                lang: item.lang
+                lang: item.lang,
+                ext: item.is_ext
             };
 
-            if (item.is_ext) {
-                ext.push(formattedLink);
-            } else {
-                int.push(formattedLink);
-            }
+            data.push(formattedLink);
         })
         
         return {
             status: 0,
-            int,
-            ext
+            data
         }
     } catch (e) {
         return {

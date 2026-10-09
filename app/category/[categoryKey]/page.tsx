@@ -25,6 +25,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
       {Object.entries(currentCategorySubcats).map(([subcatKey, subcatLabel]) => (
         <Suspense key={subcatKey} fallback={<h2>{subcatLabel as string}</h2>}>
           <SubcategorySection
+            categoryKey={categoryKey}
             subcatKey={subcatKey}
             subcatLabel={subcatLabel as string}
             lang={lang}

@@ -5,23 +5,22 @@ import { NoDocumentsSection } from "../no_documents_section/no_documents_section
 
 interface MaterialCarouselProp {
     materialType: FormattedLink[],
-    text: string
 }
 
-export function CategoryMaterialCarousel({ materialType, text }: MaterialCarouselProp) {
+export function CategoryMaterialCarousel({ materialType }: MaterialCarouselProp) {
     return (
         <>
             {materialType ? (
                 <>
-                    <CategoryMaterialCarouselTitle text={text} />
+                    <CategoryMaterialCarouselTitle text={"Materiale"} />
                     <div className="material-carousel">
                         {materialType!.length > 0 ? (
-                        materialType!.map((item, idx) => (
-                            <CategoryMaterialCard key={`${text}-${item.id || idx}`} item={item} text={text} idx={idx.toString()} />
-                        ))
-                    ) : (
+                            materialType!.map((item, idx) => (
+                                <CategoryMaterialCard key={`materiale-${item.id || idx}`} item={item} idx={idx.toString()} />
+                            ))
+                        ) : (
                             <NoDocumentsSection />
-                    )}
+                        )}
                     </div>
                 </>
             ) : (

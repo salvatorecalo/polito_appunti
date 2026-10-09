@@ -44,6 +44,7 @@ article, .category-page p {
     border: none;
     cursor: pointer;
     font-size: 1em;
+    margin: 1em 0;
 }
 
 .categoryUploadButton:hover {
