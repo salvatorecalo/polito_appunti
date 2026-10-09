@@ -31,7 +31,7 @@ export function SearchContent() {
       try {
         const result = await dbSearchByName({ name: query, lang: lang })
         if (result.status === 0 || (result.data && result.data.length > 0)) {
-          setResults(result.data);
+          setResults(result.data ?? []);
         } else {
           setResults([])
           navigate.replace(`/search?q=${encodeURIComponent(query)}&error=empty&lang=${lang}`);
