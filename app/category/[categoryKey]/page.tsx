@@ -17,12 +17,15 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
   const bgColor = appConfig.backgrounds[categoryKey as keyof typeof appConfig.backgrounds] || "#ED6D33"
   const allSubcats = lang === "it" ? appConfig.subcats_it : appConfig.subcats_en;
   const currentCategorySubcats = allSubcats[categoryKey as keyof typeof allSubcats] || {};
+  const orderedSubcats = Object.entries(currentCategorySubcats).sort(
+    ([firstKey], [secondKey]) => Number(secondKey.endsWith('_gen')) - Number(firstKey.endsWith('_gen'))
+  );
 
   return (
     <section className="category-page">
       <CategoryLabel bgColor={bgColor} appConfig={appConfig} categoryKey={categoryKey} />
 
-      {Object.entries(currentCategorySubcats).map(([subcatKey, subcatLabel]) => (
+      {orderedSubcats.map(([subcatKey, subcatLabel]) => (
         <Suspense key={subcatKey} fallback={
           <>
             <h2>{subcatLabel as string}</h2>
